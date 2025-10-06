@@ -2,15 +2,7 @@ using UnityEngine;
 
 public class AssignNumber : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int info;
+    public GameObject Holder;
 
-    // Update is called once per frame
-    void Update()
-    {
-          
-    }
 }

@@ -1,7 +1,14 @@
 using UnityEngine;
+using TMPro;
 
 public class DragDropNumbers : MonoBehaviour
 {
+    public GameObject Holder;
+
+    public int value;
+
+    [SerializeField]
+    private TMP_Text text;
 
     private Collider2D col;
 
@@ -14,7 +21,6 @@ public class DragDropNumbers : MonoBehaviour
 
     private void OnMouseDown()
     {
-        startDragPosition = transform.position;
         transform.position = GetMousePositionInWorldSpace();
     }
 
@@ -31,11 +37,11 @@ public class DragDropNumbers : MonoBehaviour
         
         if( hitCollider != null && hitCollider.TryGetComponent(out INumberDropArea numberDropArea))
         {
-            numberDropArea.OnNumberDrop(this);
+            numberDropArea.OnNumberDrop(this, hitCollider.transform);
         }
         else
         {
-            transform.position = startDragPosition;
+            transform.position = Holder.transform.position;
         }
     }
 
@@ -47,5 +53,9 @@ public class DragDropNumbers : MonoBehaviour
 
     }
 
+    public void UpdateVisual()
+    {
+        text.text = value.ToString();
+    }
    
 }

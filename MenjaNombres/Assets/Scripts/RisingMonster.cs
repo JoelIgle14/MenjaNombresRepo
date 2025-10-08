@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class RisingObjectToLine : MonoBehaviour
+public class RisingMonster : MonoBehaviour
 {
     [Header("Referencias")]
     public Transform targetLine;   // referencia a la línea o punto hasta donde subirá
 
-    [Header("Configuración")]
-    public float startY = -10f;    // posición inicial (debajo de la escena)
-    public float speed = 2f;       // velocidad de movimiento
-    public float stayTime = 3f;    // tiempo que se queda arriba
+    [Header("Configuración (controlado por GameManager)")]
+    [HideInInspector] public float startY = -10f;
+    [HideInInspector] public float speed = 2f;
+    [HideInInspector] public float stayTime = 3f;
 
     private float timer = 0f;
 
@@ -63,8 +63,12 @@ public class RisingObjectToLine : MonoBehaviour
                 if (HasReached(startPos))
                 {
                     currentState = State.Idle;
+                    Destroy(gameObject); // destruye el monstruo cuando termina
                 }
                 break;
+
+
+
 
             case State.Idle:
                 // El objeto ya terminó su ciclo

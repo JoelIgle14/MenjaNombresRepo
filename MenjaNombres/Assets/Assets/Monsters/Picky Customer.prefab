@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 449333473469662789}
   - component: {fileID: 7260251418548959783}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Picky Customer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

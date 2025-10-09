@@ -161,28 +161,34 @@ MonoBehaviour:
   monsterTypes:
   - name: Basic Costumer
     prefab: {fileID: 4723107873208367888, guid: fbda3ae2085ffce45a081202c0d9b23a, type: 3}
-    points: 0
-    weight: 0
+    points: 200
+    weight: 5
+    operationType: 0
   - name: Sophisticated Costumer
     prefab: {fileID: 4723107873208367888, guid: 8d7f37cf615a89f4ea8d78f2ced2c7fb, type: 3}
     points: 250
     weight: 3
+    operationType: 1
   - name: Sequential Costumer
     prefab: {fileID: 4723107873208367888, guid: 29d5ecc7efa884c459f6a5c44a6a9e83, type: 3}
-    points: 0
-    weight: 0
+    points: 250
+    weight: 3
+    operationType: 2
   - name: Picky Costumer
     prefab: {fileID: 4723107873208367888, guid: f04d6843e6a45144181fd9ad2b6ec885, type: 3}
-    points: 0
-    weight: 0
+    points: 250
+    weight: 3
+    operationType: 3
   - name: Intellectual Costumer
     prefab: {fileID: 4723107873208367888, guid: 0cdcd97ff3c8f0c4fbfce7d842e15b68, type: 3}
-    points: 0
-    weight: 0
+    points: 300
+    weight: 1.5
+    operationType: 4
   - name: Multiplier Costumer
     prefab: {fileID: 4723107873208367888, guid: dab18841abae80f41ba3744b97037625, type: 3}
-    points: 0
-    weight: 0
+    points: 300
+    weight: 1.5
+    operationType: 5
 --- !u!4 &153740807
 Transform:
   m_ObjectHideFlags: 0

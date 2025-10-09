@@ -5,13 +5,13 @@ public class Adder : MonoBehaviour
     [SerializeField] private NumberDropArea a1;
     [SerializeField] private NumberDropArea a2;
     [SerializeField] private ConveyorBelt belt;
-
+    [SerializeField] private GameManager gameManager;
     public void Add()
     {
         if (a1.CurrentNum == 0 || a2.CurrentNum == 0) { Debug.Log("Need 1 more number"); return; }
-        int result = add ? a1.CurrentNum + a2.CurrentNum : a1.CurrentNum - a2.CurrentNum;
+        int result = add ? a1.CurrentNum + a2.CurrentNum : Mathf.Abs(a1.CurrentNum - a2.CurrentNum);
 
-        result = Mathf.Clamp(result, 1, 9);
+        result = Mathf.Clamp(result, 1, gameManager.difficultyLevels[gameManager.currentDifficultyIndex].maxNumValue);
         belt.QueueNumberSpawn(result);
 
         a1.CurrentNum = 0;

@@ -1,13 +1,16 @@
 using UnityEngine;
+using System;
 
 public class NumberDropArea : MonoBehaviour
 {
     public int CurrentNum = 0;
-    [HideInInspector]
-    public DragDropNumbers num;
+    [HideInInspector] public DragDropNumbers num;
+    public bool IsAdder = false;
 
-   public  bool IsAdder = false;
-    Adder add;
+    // Event for when a number is dropped (for Monster script)
+    public event Action<int> OnNumberDropped;
+
+    private Adder add;
 
     private void Start()
     {
@@ -25,10 +28,24 @@ public class NumberDropArea : MonoBehaviour
         num = number;
         CurrentNum = num.value;
 
-        if(IsAdder)
+        // Trigger event for Monster
+        OnNumberDropped?.Invoke(CurrentNum);
+
+        if (IsAdder)
         {
             print("adding");
             add.Add();
+        }
+    }
+
+    // Method to clear the current number
+    public void ClearNumber()
+    {
+        if (num != null)
+        {
+            Destroy(num.gameObject);
+            num = null;
+            CurrentNum = 0;
         }
     }
 }

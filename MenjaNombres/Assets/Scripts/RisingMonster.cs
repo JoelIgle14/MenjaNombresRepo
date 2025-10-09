@@ -16,7 +16,7 @@ public class RisingMonster : MonoBehaviour
     private State currentState = State.Rising;
 
     private Vector3 startPos;
-    private Vector3 targetPos;
+    public Vector3 targetPos;
 
     void Start()
     {

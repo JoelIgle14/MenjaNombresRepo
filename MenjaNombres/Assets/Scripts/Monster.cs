@@ -25,6 +25,8 @@ public class Monster : MonoBehaviour
     private int currentSequenceIndex = 0;
 
     [Header("Timer")]
+    private bool timerActive = false;
+    private RisingMonster risingMonster;
     public float orderTime = 10f;
     private float timer;
     public Image timerBar;
@@ -35,6 +37,8 @@ public class Monster : MonoBehaviour
     private NumberDropArea dropArea;
     private bool orderCompleted = false;
 
+
+
     public void Initialize(string op, int result, int points, GameManager.OperationType type)
     {
         operation = op;
@@ -43,49 +47,24 @@ public class Monster : MonoBehaviour
         orderType = type;
         timer = orderTime;
 
-        // Parse sequential order if needed
-        if (orderType == GameManager.OperationType.SequentialCustomer)
+        risingMonster = GetComponent<RisingMonster>();
+        if (risingMonster != null)
         {
-            ParseSequentialOrder(op);
+            risingMonster.OnReachedTop += StartOrderTimer;
         }
 
-        // Spawn speech bubble
-        if (speechBubblePrefab != null && speechBubbleSpawnPoint != null)
+        // Ocultar el timer visual al principio
+        if (timerBar != null)
         {
-            speechBubbleInstance = Instantiate(speechBubblePrefab, new Vector3(speechBubbleSpawnPoint.position.x, GetComponent<RisingMonster>().targetPos.y + 4, 0), Quaternion.identity);
-            operationText = speechBubbleInstance.GetComponentInChildren<TMP_Text>();
-            TMP_Text bubbleText = speechBubbleInstance.GetComponentInChildren<TMP_Text>();
-            if (bubbleText != null)
-            {
-                bubbleText.text = operation;
-            }
+            timerBar.gameObject.SetActive(false);
         }
-        else if (operationText != null)
-        {
-            operationText.text = operation;
-        }
-
-        // Spawn drop area
-        if (dropAreaPrefab != null && dropAreaSpawnPoint != null)
-        {
-            GameObject dropAreaObj = Instantiate(dropAreaPrefab, new Vector3(dropAreaSpawnPoint.position.x, GetComponent<RisingMonster>().targetPos.y + 4, dropAreaSpawnPoint.position.z), Quaternion.identity);
-            dropArea = dropAreaObj.GetComponent<NumberDropArea>();
-
-
-            if (dropArea != null)
-            {
-                dropArea.OnNumberDropped += OnNumberReceived;
-            }
-        }
-        Destroy(speechBubbleInstance, orderTime);
-        Destroy(dropArea.gameObject, orderTime);
+        
     }
 
     void Update()
     {
-        if (orderCompleted) return;
+        if (orderCompleted || !timerActive) return;
 
-        // Update timer
         timer -= Time.deltaTime;
         UpdateTimerVisual();
 
@@ -94,6 +73,7 @@ public class Monster : MonoBehaviour
             OnOrderFailed();
         }
     }
+
 
     void UpdateTimerVisual()
     {
@@ -126,6 +106,52 @@ public class Monster : MonoBehaviour
             }
         }
     }
+
+    private void ShowOrderUI()
+    {
+        // Crear el globo de texto
+        if (speechBubblePrefab != null && speechBubbleSpawnPoint != null)
+        {
+            speechBubbleInstance = Instantiate(  
+                speechBubblePrefab,
+                new Vector3(speechBubbleSpawnPoint.position.x, GetComponent<RisingMonster>().targetPos.y + speechBubbleSpawnPoint.position.y, 0),
+                Quaternion.identity
+            );
+
+            operationText = speechBubbleInstance.GetComponentInChildren<TMP_Text>();
+            TMP_Text bubbleText = speechBubbleInstance.GetComponentInChildren<TMP_Text>();
+            if (bubbleText != null)
+            {
+                bubbleText.text = operation;
+            }
+        }
+
+        // Crear el área de drop
+        if (dropAreaPrefab != null && dropAreaSpawnPoint != null)
+        {
+            GameObject dropAreaObj = Instantiate(
+                dropAreaPrefab,
+                new Vector3(dropAreaSpawnPoint.position.x, GetComponent<RisingMonster>().targetPos.y + 4, dropAreaSpawnPoint.position.z),
+                Quaternion.identity
+            );
+
+            dropArea = dropAreaObj.GetComponent<NumberDropArea>();
+            if (dropArea != null)
+            {
+                dropArea.OnNumberDropped += OnNumberReceived;
+            }
+        }
+
+        // Mostrar el timer visual
+        if (timerBar != null)
+        {
+            timerBar.gameObject.SetActive(true);
+        }
+
+        // Activar el temporizador
+        timerActive = true;
+    }
+
 
     public void OnNumberReceived(int value)
     {
@@ -254,6 +280,7 @@ public class Monster : MonoBehaviour
 
         // Destroy after animation
         Destroy(gameObject, 0.5f);
+
     }
 
     void OnWrongNumber()
@@ -273,10 +300,21 @@ public class Monster : MonoBehaviour
 
         PlayLeaveAnimation();
 
-        // Destroy immediately
-        Destroy(gameObject, 0.3f);
-        dropArea.ClearNumber();
+        // decirle que empiece a bajar
+        if (risingMonster != null)
+        {
+            risingMonster.StartFalling();
+        }
+
+        // eliminar UI visual del pedido y timer
+        if (speechBubbleInstance != null) Destroy(speechBubbleInstance);
+        if (dropArea != null && dropArea.gameObject != null) Destroy(dropArea.gameObject);
+        if (timerBar != null) timerBar.gameObject.SetActive(false);
+
+        Destroy(gameObject, 1f);
     }
+
+
 
     void PlaySuccessAnimation()
     {
@@ -301,6 +339,14 @@ public class Monster : MonoBehaviour
         Debug.Log($"{gameObject.name} - Time's up! Leaving...");
         // Add your leave animation here
     }
+
+    private void StartOrderTimer()
+    {
+        ShowOrderUI(); // cuando llega arriba, mostrar todo y empezar el timer
+    }
+
+
+
 
     void OnDestroy()
     {

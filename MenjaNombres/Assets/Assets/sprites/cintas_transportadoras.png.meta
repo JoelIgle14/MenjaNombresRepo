@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cintas_transportadoras_0: -3216351064086693144
+      cintas_transportadoras_1: 2631211246615843094
+      cintas_transportadoras_2: -2181823286543910493
+      cintas_transportadoras_3: 900789066392157624
+      cintas_transportadoras_4: -4239452974233965661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

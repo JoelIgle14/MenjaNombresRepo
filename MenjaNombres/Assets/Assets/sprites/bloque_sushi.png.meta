@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bloque_sushi_0: -5683875773102921528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

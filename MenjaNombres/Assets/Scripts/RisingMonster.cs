@@ -1,9 +1,10 @@
 using UnityEngine;
+using System;
 
 public class RisingMonster : MonoBehaviour
 {
     [Header("Referencias")]
-    public Transform targetLine;   // referencia a la línea o punto hasta donde subirá
+    public Transform targetLine;
 
     [Header("Configuración (controlado por GameManager)")]
     [HideInInspector] public float startY = -10f;
@@ -18,14 +19,14 @@ public class RisingMonster : MonoBehaviour
     private Vector3 startPos;
     public Vector3 targetPos;
 
+    public event Action OnReachedTop;
+
     void Start()
     {
-        // Guardar la posición inicial del objeto
         startPos = transform.position;
         startPos.y = startY;
         transform.position = startPos;
 
-        // Si tiene línea asignada, usar su posición Y como destino
         if (targetLine != null)
         {
             targetPos = new Vector3(startPos.x, targetLine.position.y, startPos.z);
@@ -33,7 +34,7 @@ public class RisingMonster : MonoBehaviour
         else
         {
             Debug.LogWarning("No se asignó ninguna 'targetLine'. Usa un objeto vacío como referencia en el Inspector.");
-            targetPos = new Vector3(startPos.x, startY + 5f, startPos.z); // fallback
+            targetPos = new Vector3(startPos.x, startY + 5f, startPos.z);
         }
     }
 
@@ -46,16 +47,12 @@ public class RisingMonster : MonoBehaviour
                 if (HasReached(targetPos))
                 {
                     currentState = State.Waiting;
-                    timer = 0f;
+                    OnReachedTop?.Invoke(); // Avisar al Monster
                 }
                 break;
 
             case State.Waiting:
-                timer += Time.deltaTime;
-                if (timer >= stayTime)
-                {
-                    currentState = State.Falling;
-                }
+                // Aquí el monstruo se queda quieto hasta que Monster le diga que baje
                 break;
 
             case State.Falling:
@@ -63,17 +60,18 @@ public class RisingMonster : MonoBehaviour
                 if (HasReached(startPos))
                 {
                     currentState = State.Idle;
-                    Destroy(gameObject); // destruye el monstruo cuando termina
+                    Destroy(gameObject);
                 }
                 break;
 
-
-
-
             case State.Idle:
-                // El objeto ya terminó su ciclo
                 break;
         }
+    }
+
+    public void StartFalling()
+    {
+        currentState = State.Falling;
     }
 
     void MoveTowards(Vector3 target)

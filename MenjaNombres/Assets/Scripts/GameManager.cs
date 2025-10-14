@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public int score = 0;
     private bool gameActive = true;
+    public GameObject[] lifeObjects;
 
     public static GameManager Instance;
 
@@ -341,6 +342,7 @@ public class GameManager : MonoBehaviour
     public void OnMonsterFailed()
     {
         lives--;
+        if(lifeObjects[lives] != null) Destroy(lifeObjects[lives]);
         Debug.Log($"Lives remaining: {lives}");
 
         if (lives <= 0)

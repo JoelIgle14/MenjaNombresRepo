@@ -37,7 +37,7 @@ public class Monster : MonoBehaviour
     private NumberDropArea dropArea;
     private bool orderCompleted = false;
 
-
+    GameObject Ui;
 
     public void Initialize(string op, int result, int points, GameManager.OperationType type)
     {
@@ -118,12 +118,15 @@ public class Monster : MonoBehaviour
                 Quaternion.identity
             );
 
+            Ui = speechBubbleInstance;
+
             operationText = speechBubbleInstance.GetComponentInChildren<TMP_Text>();
             TMP_Text bubbleText = speechBubbleInstance.GetComponentInChildren<TMP_Text>();
             if (bubbleText != null)
             {
                 bubbleText.text = operation;
             }
+            Destroy(speechBubbleInstance, orderTime);
         }
 
         // Crear el área de drop
@@ -280,7 +283,7 @@ public class Monster : MonoBehaviour
 
         // Destroy after animation
         Destroy(gameObject, 0.5f);
-
+        if(Ui != null)Destroy(Ui);
     }
 
     void OnWrongNumber()
@@ -311,6 +314,8 @@ public class Monster : MonoBehaviour
         if (dropArea != null && dropArea.gameObject != null) Destroy(dropArea.gameObject);
         if (timerBar != null) timerBar.gameObject.SetActive(false);
 
+        Destroy(gameObject, 0.5f);
+        if (Ui != null) Destroy(Ui);
         Destroy(gameObject, 1f);
     }
 

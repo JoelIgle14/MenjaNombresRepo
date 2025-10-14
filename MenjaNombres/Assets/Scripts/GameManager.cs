@@ -353,6 +353,5 @@ public class GameManager : MonoBehaviour
     {
         gameActive = false;
         Debug.Log($"Game Over! Final Score: {score}");
-        // Add your game over UI logic here
     }
 }

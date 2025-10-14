@@ -176,6 +176,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_Color.b
       value: 0.96470594
       objectReference: {fileID: 0}
@@ -308,7 +312,7 @@ MonoBehaviour:
   difficultyLevels:
   - levelName: Easy
     clientNum: 1
-    conveyorSpeedMultiplier: 1.2
+    conveyorSpeedMultiplier: 0.8
     minNumValue: 1
     maxNumValue: 5
     orderTimeMultiplier: 1
@@ -321,7 +325,7 @@ MonoBehaviour:
     multiplierWeight: 1
   - levelName: Normal
     clientNum: 2
-    conveyorSpeedMultiplier: 1.5
+    conveyorSpeedMultiplier: 1
     minNumValue: 1
     maxNumValue: 10
     orderTimeMultiplier: 0.8
@@ -334,7 +338,7 @@ MonoBehaviour:
     multiplierWeight: 1
   - levelName: Hard
     clientNum: 3
-    conveyorSpeedMultiplier: 2
+    conveyorSpeedMultiplier: 1.5
     minNumValue: 1
     maxNumValue: 15
     orderTimeMultiplier: 0.65
@@ -345,7 +349,7 @@ MonoBehaviour:
     pickyWeight: 1
     intellectualWeight: 1
     multiplierWeight: 1
-  - levelName: Hard
+  - levelName: FINAL
     clientNum: 3
     conveyorSpeedMultiplier: 2
     minNumValue: 1
@@ -367,6 +371,12 @@ MonoBehaviour:
     points: 200
     baseWeight: 0
     operationType: 0
+    currentWeight: 0
+  - name: Intellectual Customer
+    prefab: {fileID: 4723107873208367888, guid: 0cdcd97ff3c8f0c4fbfce7d842e15b68, type: 3}
+    points: 200
+    baseWeight: 0
+    operationType: 4
     currentWeight: 0
 --- !u!4 &153740807
 Transform:
@@ -510,6 +520,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
@@ -904,7 +918,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 27.726768, y: 3.31}
+    oldSize: {x: 27.728065, y: 3.29}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -935,7 +949,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3778d8b20d6014447a466ad789f43933, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -956,7 +970,7 @@ SpriteRenderer:
   m_SortingLayerID: 970206915
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2181823286543910493, guid: feea9b96800777c43a3e616f243efe20, type: 3}
+  m_Sprite: {fileID: 5093924229677422936, guid: ca688081182f7704ab540ece19741621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1020,7 +1034,7 @@ MonoBehaviour:
   add: 0
   a1: {fileID: 172694586}
   a2: {fileID: 1229506715}
-  belt: {fileID: 1867363682}
+  belt: {fileID: 702277775}
   gameManager: {fileID: 153740806}
 --- !u!4 &719106240
 Transform:
@@ -1096,6 +1110,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_Color.b
       value: 0.96470594
       objectReference: {fileID: 0}
@@ -1141,11 +1159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.76
+      value: -6.92
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1177,6 +1195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
@@ -1464,11 +1486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.05
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1500,6 +1522,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
@@ -1686,6 +1712,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_Color.b
       value: 0.96470594
       objectReference: {fileID: 0}
@@ -1801,6 +1831,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_Color.b
       value: 0.96470594
       objectReference: {fileID: 0}
@@ -1885,7 +1919,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 27.726768, y: 3.31}
+    oldSize: {x: 27.728065, y: 3.29}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1916,7 +1950,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 901594a7bdcf3024bb814add96a6d559, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1937,7 +1971,7 @@ SpriteRenderer:
   m_SortingLayerID: 970206915
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2181823286543910493, guid: feea9b96800777c43a3e616f243efe20, type: 3}
+  m_Sprite: {fileID: 5093924229677422936, guid: ca688081182f7704ab540ece19741621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2047,6 +2081,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
@@ -2255,6 +2293,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_Color.b
       value: 0.96470594
       objectReference: {fileID: 0}
@@ -2331,6 +2373,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661873542719908368, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1951748768431605874, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}

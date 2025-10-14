@@ -11,7 +11,7 @@ public class Adder : MonoBehaviour
         if (a1.CurrentNum == 0 || a2.CurrentNum == 0) { Debug.Log("Need 1 more number"); return; }
         int result = add ? a1.CurrentNum + a2.CurrentNum : Mathf.Abs(a1.CurrentNum - a2.CurrentNum);
 
-        result = Mathf.Clamp(result, 1, gameManager.difficultyLevels[gameManager.currentDifficultyIndex].maxNumValue);
+        result = Mathf.Clamp(result, 0, 20);
         belt.QueueNumberSpawn(result);
 
         a1.CurrentNum = 0;

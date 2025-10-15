@@ -365,6 +365,7 @@ MonoBehaviour:
   currentDifficultyIndex: 0
   lives: 3
   score: 0
+  lifeObjects: []
   monsterTypes:
   - name: Basic Costumer
     prefab: {fileID: 4723107873208367888, guid: fbda3ae2085ffce45a081202c0d9b23a, type: 3}

@@ -137,12 +137,12 @@ TextureImporter:
       name: MHuevo_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 1573
+        x: 11
+        y: 1581
         width: 474
         height: 508
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.92220193, y: 0.9333386}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -164,7 +164,7 @@ TextureImporter:
         width: 714
         height: 950
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -186,7 +186,7 @@ TextureImporter:
         width: 223
         height: 228
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -208,7 +208,7 @@ TextureImporter:
         width: 249
         height: 123
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -229,9 +229,9 @@ TextureImporter:
         y: 1029
         width: 474
         height: 507
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.060956247, y: 0.95121163}
+      border: {x: 0, y: 0, z: 3, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -252,7 +252,7 @@ TextureImporter:
         width: 765
         height: 694
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,10 +271,10 @@ TextureImporter:
         serializedVersion: 2
         x: 478
         y: 688
-        width: 205
-        height: 301
+        width: 765
+        height: 313
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -287,33 +287,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: MHuevo_7
-      rect:
-        serializedVersion: 2
-        x: 1031
-        y: 688
-        width: 206
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ac304e6f19cb50b0800000000000000
-      internalID: -5738772163322692447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: df88848d17404234b94fef43b6867b01
     internalID: 0
     vertices: []
     indices: 

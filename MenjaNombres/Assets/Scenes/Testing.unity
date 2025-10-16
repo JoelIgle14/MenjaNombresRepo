@@ -368,9 +368,9 @@ MonoBehaviour:
   lifeObjects: []
   monsterTypes:
   - name: Basic Costumer
-    prefab: {fileID: 4723107873208367888, guid: fbda3ae2085ffce45a081202c0d9b23a, type: 3}
+    prefab: {fileID: 7934938036700378104, guid: a9f8d8f75df7366449957d5286917bcb, type: 3}
     points: 200
-    baseWeight: 0
+    baseWeight: 7
     operationType: 0
     currentWeight: 0
   - name: Intellectual Customer
@@ -1354,8 +1354,8 @@ Transform:
   m_GameObject: {fileID: 1051913662}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -0.9366049}
-  m_LocalScale: {x: 1.1768, y: 1.1768, z: 1.1768}
+  m_LocalPosition: {x: 0, y: 0.9, z: -0.9366049}
+  m_LocalScale: {x: 1.3223702, y: 1.3223702, z: 1.3223702}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

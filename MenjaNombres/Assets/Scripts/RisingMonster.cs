@@ -21,8 +21,15 @@ public class RisingMonster : MonoBehaviour
 
     public event Action OnReachedTop;
 
+    private Animator animator;
+
+    private string idleAnimation;
+    private string hoverAnimation;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         startPos = transform.position;
         startPos.y = startY;
         transform.position = startPos;
@@ -43,16 +50,23 @@ public class RisingMonster : MonoBehaviour
         switch (currentState)
         {
             case State.Rising:
+                if (animator != null && !string.IsNullOrEmpty(hoverAnimation))
+                    animator.Play(hoverAnimation);
+
                 MoveTowards(targetPos);
                 if (HasReached(targetPos))
                 {
                     currentState = State.Waiting;
-                    OnReachedTop?.Invoke(); // Avisar al Monster
+                    OnReachedTop?.Invoke();
+
+                    // Cambiar a idle cuando llega arriba
+                    if (animator != null && !string.IsNullOrEmpty(idleAnimation))
+                        animator.Play(idleAnimation);
                 }
                 break;
 
             case State.Waiting:
-                // Aquí el monstruo se queda quieto hasta que Monster le diga que baje
+                // No hace nada más, sólo mantiene idle
                 break;
 
             case State.Falling:
@@ -69,10 +83,21 @@ public class RisingMonster : MonoBehaviour
         }
     }
 
+
+    public void SetAnimationNames(string idle, string hover)
+    {
+        idleAnimation = idle;
+        hoverAnimation = hover;
+    }
+
+
     public void StartFalling()
     {
         currentState = State.Falling;
+        if (animator != null && !string.IsNullOrEmpty(hoverAnimation))
+            animator.Play(hoverAnimation);
     }
+
 
     void MoveTowards(Vector3 target)
     {
@@ -83,4 +108,22 @@ public class RisingMonster : MonoBehaviour
     {
         return Vector3.Distance(transform.position, target) < 0.01f;
     }
+
+    public void InitializeRising(Transform assignedTarget)
+    {
+        // Asignar la línea
+        targetLine = assignedTarget;
+
+        // Inicializar la posición de inicio
+        startPos = transform.position;
+        startPos.y = startY;
+        transform.position = startPos;
+
+        // Calcular la posición objetivo
+        if (targetLine != null)
+            targetPos = new Vector3(startPos.x, targetLine.position.y, startPos.z);
+        else
+            targetPos = new Vector3(startPos.x, startY + 5f, startPos.z);
+    }
+
 }

@@ -33,6 +33,11 @@ public class Monster : MonoBehaviour
     public Color timerStartColor = Color.green;
     public Color timerEndColor = Color.red;
 
+    [Header("Animation")]
+    public string idleAnimationName;
+    public string hoverAnimationName;
+
+
     private GameObject speechBubbleInstance;
     private NumberDropArea dropArea;
     private bool orderCompleted = false;
@@ -51,6 +56,9 @@ public class Monster : MonoBehaviour
         if (risingMonster != null)
         {
             risingMonster.OnReachedTop += StartOrderTimer;
+
+            // pasar los nombres de animación al RisingMonster
+            risingMonster.SetAnimationNames(idleAnimationName, hoverAnimationName);
         }
 
         // Ocultar el timer visual al principio
@@ -58,8 +66,8 @@ public class Monster : MonoBehaviour
         {
             timerBar.gameObject.SetActive(false);
         }
-        
     }
+
 
     void Update()
     {

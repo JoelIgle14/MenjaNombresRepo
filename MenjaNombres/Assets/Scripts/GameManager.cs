@@ -196,6 +196,9 @@ public class GameManager : MonoBehaviour
                     risingScript.speed = monsterSpeed;
                     risingScript.stayTime = monsterStayTime * GetCurrentDifficulty().orderTimeMultiplier;
                     risingScript.startY = monsterStartY;
+
+                    risingScript.InitializeRising(targetLine);
+
                 }
 
                 // Configure monster data
@@ -341,15 +344,25 @@ public class GameManager : MonoBehaviour
 
     public void OnMonsterFailed()
     {
-        lives--;
-        if(lifeObjects[lives] != null) Destroy(lifeObjects[lives]);
-        Debug.Log($"Lives remaining: {lives}");
+        if (lives > 0)
+        {
+            lives--;
+
+            // Solo destruir si el índice sigue válido
+            if (lives >= 0 && lives < lifeObjects.Length && lifeObjects[lives] != null)
+            {
+                Destroy(lifeObjects[lives]);
+            }
+
+            Debug.Log($"Lives remaining: {lives}");
+        }
 
         if (lives <= 0)
         {
             GameOver();
         }
     }
+
 
     void GameOver()
     {

@@ -373,10 +373,16 @@ MonoBehaviour:
     baseWeight: 7
     operationType: 0
     currentWeight: 0
+  - name: Sequential Customer
+    prefab: {fileID: 3702048572298197702, guid: 3d3d9e415db9bb44ba8a67f1f8aed180, type: 3}
+    points: 250
+    baseWeight: 5
+    operationType: 2
+    currentWeight: 0
   - name: Intellectual Customer
-    prefab: {fileID: 4723107873208367888, guid: 0cdcd97ff3c8f0c4fbfce7d842e15b68, type: 3}
-    points: 200
-    baseWeight: 0
+    prefab: {fileID: 3312467018059743159, guid: b2eff6e9b2d16af4f88a74be3004c515, type: 3}
+    points: 300
+    baseWeight: 3
     operationType: 4
     currentWeight: 0
 --- !u!4 &153740807
@@ -970,7 +976,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 970206915
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 5093924229677422936, guid: ca688081182f7704ab540ece19741621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2109,7 +2115,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 970206915
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 5093924229677422936, guid: ca688081182f7704ab540ece19741621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: feea9b96800777c43a3e616f243efe20
+guid: dea8db1d934723847af13b39eec656e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3216351064086693144
-    second: cintas_transportadoras_0
-  - first:
-      213: 2631211246615843094
-    second: cintas_transportadoras_1
-  - first:
-      213: -2181823286543910493
-    second: cintas_transportadoras_2
-  - first:
-      213: 900789066392157624
-    second: cintas_transportadoras_3
-  - first:
-      213: -4239452974233965661
-    second: cintas_transportadoras_4
+      213: 3164644660368449600
+    second: fondo_ludi (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,84 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cintas_transportadoras_0
+      name: fondo_ludi (1)_0
       rect:
         serializedVersion: 2
-        x: 91
-        y: 1454
-        width: 2778
-        height: 467
+        x: 0
+        y: 0
+        width: 1815
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8eab9288fb93d53d0800000000000000
-      internalID: -3216351064086693144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cintas_transportadoras_2
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 802
-        width: 2772
-        height: 331
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3a9ffdad74b98b1e0800000000000000
-      internalID: -2181823286543910493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cintas_transportadoras_3
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 109
-        width: 2774
-        height: 462
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8bd3cdf12ee308c00800000000000000
-      internalID: 900789066392157624
+      spriteID: 04029953d831beb20800000000000000
+      internalID: 3164644660368449600
       vertices: []
       indices: 
       edges: []
@@ -194,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eace0ba0becd5264b9f204bc4d898d65
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -203,12 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      cintas_transportadoras_0: -3216351064086693144
-      cintas_transportadoras_1: 2631211246615843094
-      cintas_transportadoras_2: -2181823286543910493
-      cintas_transportadoras_3: 900789066392157624
-      cintas_transportadoras_4: -4239452974233965661
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

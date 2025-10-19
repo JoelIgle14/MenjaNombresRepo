@@ -1,0 +1,433 @@
+fileFormatVersion: 2
+guid: 8aa3ffa90dea5c54ab17f5c67f1a5e70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1626611322337839994
+    second: MAquina (1)_0
+  - first:
+      213: -3427343568014128362
+    second: MAquina (1)_1
+  - first:
+      213: -3303117937078563474
+    second: MAquina (1)_2
+  - first:
+      213: 97392286218624818
+    second: MAquina (1)_3
+  - first:
+      213: -38213346244508086
+    second: MAquina (1)_4
+  - first:
+      213: -562589380767021120
+    second: MAquina (1)_5
+  - first:
+      213: -3615254715083455680
+    second: MAquina (1)_6
+  - first:
+      213: -7794596818602903751
+    second: MAquina (1)_7
+  - first:
+      213: -4450724506469640286
+    second: MAquina (1)_8
+  - first:
+      213: -6614118755481256752
+    second: MAquina (1)_9
+  - first:
+      213: 9026144283500363377
+    second: MAquina (1)_10
+  - first:
+      213: 5077179884639560388
+    second: MAquina (1)_11
+  - first:
+      213: -7559017666449005586
+    second: MAquina (1)_12
+  - first:
+      213: 6891886742741154472
+    second: MAquina (1)_13
+  - first:
+      213: -5022026608217786318
+    second: MAquina (1)_14
+  - first:
+      213: -23354775642950766
+    second: MAquina (1)_15
+  - first:
+      213: 1952787340383693883
+    second: MAquina (1)_16
+  - first:
+      213: -6443803730287235642
+    second: MAquina (1)_17
+  - first:
+      213: 6298839706453523943
+    second: MAquina (1)_18
+  - first:
+      213: -2124937581688029911
+    second: MAquina (1)_19
+  - first:
+      213: 1518539692265109522
+    second: MAquina (1)_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MAquina (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1544
+        width: 184
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 684bc68de9d1d69e0800000000000000
+      internalID: -1626611322337839994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_4
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 1600
+        width: 470
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a46ca6ff92d387ff0800000000000000
+      internalID: -38213346244508086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_5
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 1313
+        width: 307
+        height: 308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c789fc50f74138f0800000000000000
+      internalID: -562589380767021120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_6
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1419
+        width: 171
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04305e6bdf804ddc0800000000000000
+      internalID: -3615254715083455680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_10
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 1505
+        width: 458
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e367d376e434d70800000000000000
+      internalID: 9026144283500363377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_11
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1431
+        width: 12
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c223bc7434c57640800000000000000
+      internalID: 5077179884639560388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_15
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1400
+        width: 457
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2933efd84f60daff0800000000000000
+      internalID: -23354775642950766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_16
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 707
+        width: 730
+        height: 555
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c23716db1b91b10800000000000000
+      internalID: 1952787340383693883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_17
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 154
+        width: 637
+        height: 887
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd64e5e5a20396a0800000000000000
+      internalID: -6443803730287235642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_18
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 346
+        width: 263
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7edb9402759f96750800000000000000
+      internalID: 6298839706453523943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_19
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 0
+        width: 280
+        height: 599
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d7b912784b282e0800000000000000
+      internalID: -2124937581688029911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9d6a5304b44d4a3498adf180c0dfebdd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MAquina (1)_0: -1626611322337839994
+      MAquina (1)_10: 9026144283500363377
+      MAquina (1)_11: 5077179884639560388
+      MAquina (1)_15: -23354775642950766
+      MAquina (1)_16: 1952787340383693883
+      MAquina (1)_17: -6443803730287235642
+      MAquina (1)_18: 6298839706453523943
+      MAquina (1)_19: -2124937581688029911
+      MAquina (1)_4: -38213346244508086
+      MAquina (1)_5: -562589380767021120
+      MAquina (1)_6: -3615254715083455680
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

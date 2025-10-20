@@ -408,7 +408,10 @@ MonoBehaviour:
   currentDifficultyIndex: 0
   lives: 3
   score: 0
-  lifeObjects: []
+  lifeObjects:
+  - {fileID: 1721880350}
+  - {fileID: 1198542104}
+  - {fileID: 2066084688}
   monsterTypes:
   - name: Basic Costumer
     prefab: {fileID: 7934938036700378104, guid: a9f8d8f75df7366449957d5286917bcb, type: 3}
@@ -436,12 +439,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153740805}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8586035, y: -2.4302883, z: -0.9366049}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.8585472, y: -2.4302676, z: -90.93661}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1411794109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &172694585
 PrefabInstance:
@@ -904,6 +907,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1036,6 +1071,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 1
+  m_ApplyToSortingLayers: 7737739fc32ed4390fc4528d00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 1
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath: []
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -1245,7 +1316,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: -12
   m_Sprite: {fileID: 5093924229677422936, guid: ca688081182f7704ab540ece19741621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1310,7 +1381,7 @@ MonoBehaviour:
   add: 0
   a1: {fileID: 172694586}
   a2: {fileID: 1229506715}
-  belt: {fileID: 0}
+  belt: {fileID: 702277775}
   gameManager: {fileID: 153740806}
 --- !u!4 &719106240
 Transform:
@@ -2151,6 +2222,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24d844eb8b881345b5b82d2cc69017b, type: 3}
+--- !u!1 &1198542104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2431279231476423585, guid: a24d844eb8b881345b5b82d2cc69017b, type: 3}
+  m_PrefabInstance: {fileID: 1198542103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1229506714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2339,6 +2415,7 @@ Transform:
   m_Children:
   - {fileID: 1867363681}
   - {fileID: 702277778}
+  - {fileID: 153740807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435259463
@@ -2832,7 +2909,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 14
   m_Sprite: {fileID: 271979997179732564, guid: adf7fc7c118de8442aaa370735d104db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2913,6 +2990,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24d844eb8b881345b5b82d2cc69017b, type: 3}
+--- !u!1 &1721880350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2431279231476423585, guid: a24d844eb8b881345b5b82d2cc69017b, type: 3}
+  m_PrefabInstance: {fileID: 1721880349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1856371905
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,7 +3207,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 901594a7bdcf3024bb814add96a6d559, type: 2}
+  - {fileID: 2100000, guid: a349b36f5975f3c46a78129c695000d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3145,8 +3227,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
-  m_Sprite: {fileID: 5093924229677422936, guid: ca688081182f7704ab540ece19741621, type: 3}
+  m_SortingOrder: -12
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3154,7 +3236,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1867363681
@@ -3513,7 +3595,7 @@ MonoBehaviour:
   add: 1
   a1: {fileID: 1638913248}
   a2: {fileID: 813871245}
-  belt: {fileID: 0}
+  belt: {fileID: 1867363682}
   gameManager: {fileID: 153740806}
 --- !u!4 &1997966655
 Transform:
@@ -3684,6 +3766,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24d844eb8b881345b5b82d2cc69017b, type: 3}
+--- !u!1 &2066084688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2431279231476423585, guid: a24d844eb8b881345b5b82d2cc69017b, type: 3}
+  m_PrefabInstance: {fileID: 2066084687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2066738309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3965,7 +4052,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 153740807}
   - {fileID: 1484387595}
   - {fileID: 1411794109}
   - {fileID: 1856371906}

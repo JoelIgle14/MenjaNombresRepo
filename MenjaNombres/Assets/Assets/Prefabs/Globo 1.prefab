@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8889785518894556126}
   - component: {fileID: 305660966598104354}
+  - component: {fileID: 6400490162602601226}
+  - component: {fileID: -9184782043733878184}
   m_Layer: 0
   m_Name: Globo 1
   m_TagString: Untagged
@@ -58,6 +60,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6400490162602601226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547625048845922028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3e170c2ce80704b8852ca93d4857c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLine: {fileID: 0}
+  startY: -10
+  speed: 2
+  stayTime: 3
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &-9184782043733878184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547625048845922028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b349cb18eb1a934d8fc5ab83b3e88be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speechBubblePrefab: {fileID: 0}
+  speechBubbleSpawnPoint: {fileID: 0}
+  dropAreaSpawnPoint: {fileID: 0}
+  dropAreaPrefab: {fileID: 0}
+  operation: 
+  requiredResult: 0
+  pointValue: 0
+  orderType: 0
+  orderTime: 10
+  timerBar: {fileID: 0}
+  timerStartColor: {r: 0, g: 1, b: 0, a: 1}
+  timerEndColor: {r: 1, g: 0, b: 0, a: 1}
+  idleAnimationName: Ojo_Idle
+  hoverAnimationName: Ojo_Aparece
 --- !u!1 &1703328483169358813
 GameObject:
   m_ObjectHideFlags: 0

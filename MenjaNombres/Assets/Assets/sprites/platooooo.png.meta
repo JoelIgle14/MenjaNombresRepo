@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62c0696eec33d454d8999b360b47bc96
+guid: adf7fc7c118de8442aaa370735d104db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4501907318792098072
-    second: rectangulo_0
+      213: 271979997179732564
+    second: platooooo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rectangulo_0
+      name: platooooo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1652
-        height: 484
+        width: 1546
+        height: 531
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ee6aab45230681c0800000000000000
-      internalID: -4501907318792098072
+      spriteID: 452e8edcd5446c300800000000000000
+      internalID: 271979997179732564
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rectangulo_0: -4501907318792098072
+      platooooo_0: 271979997179732564
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

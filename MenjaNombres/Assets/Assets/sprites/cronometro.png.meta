@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: adf7fc7c118de8442aaa370735d104db
+guid: b3aaea579e7e12f4f962e87e4efbd215
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 271979997179732564
-    second: platooooo_0
+      213: -5768295138754647062
+    second: cronometro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: platooooo_0
+      name: cronometro_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1546
-        height: 531
+        width: 439
+        height: 598
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 452e8edcd5446c300800000000000000
-      internalID: 271979997179732564
+      spriteID: aebaaee0226e2ffa0800000000000000
+      internalID: -5768295138754647062
       vertices: []
       indices: 
       edges: []
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cronometro_0: -5768295138754647062
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

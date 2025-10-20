@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour
 
     [Header("Drop Area")]
     public Transform dropAreaSpawnPoint;
+    public float ResultPointOffset;
     public GameObject dropAreaPrefab;
 
     [Header("Order Data")]
@@ -39,6 +40,7 @@ public class Monster : MonoBehaviour
 
 
     private GameObject speechBubbleInstance;
+    private GameObject DropInstance;
     private NumberDropArea dropArea;
     private bool orderCompleted = false;
 
@@ -142,9 +144,10 @@ public class Monster : MonoBehaviour
         {
             GameObject dropAreaObj = Instantiate(
                 dropAreaPrefab,
-                new Vector3(dropAreaSpawnPoint.position.x, GetComponent<RisingMonster>().targetPos.y + 4, dropAreaSpawnPoint.position.z),
+                new Vector3(dropAreaSpawnPoint.position.x, GetComponent<RisingMonster>().targetPos.y + ResultPointOffset, dropAreaSpawnPoint.position.z),
                 Quaternion.identity
             );
+            DropInstance = dropAreaObj;
 
             dropArea = dropAreaObj.GetComponent<NumberDropArea>();
             if (dropArea != null)
@@ -288,6 +291,9 @@ public class Monster : MonoBehaviour
         PlaySuccessAnimation();
 
         dropArea.ClearNumber();
+
+        if(DropInstance != null)
+            Destroy(DropInstance);
 
         // Destroy after animation
         Destroy(gameObject, 0.5f);

@@ -15,10 +15,12 @@ public class DragDropNumbers : MonoBehaviour
     private void OnMouseDown()
     {
         transform.position = GetMousePositionInWorldSpace();
+        transform.position += new Vector3(0,0,-3);
     }
     private void OnMouseDrag()
     {
         transform.position = GetMousePositionInWorldSpace();
+        transform.position += new Vector3(0, 0, -3);
     }
     private void OnMouseUp()
     {

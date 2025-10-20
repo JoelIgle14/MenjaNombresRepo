@@ -21,6 +21,11 @@ public class NumberDropArea : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void OnNumberDrop(DragDropNumbers number, Transform transform)
     {
         number.transform.position = transform.position;

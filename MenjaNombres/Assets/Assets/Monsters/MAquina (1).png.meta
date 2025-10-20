@@ -277,8 +277,8 @@ TextureImporter:
         y: 1431
         width: 12
         height: 73
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4789826, y: 0.061232474}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -343,8 +343,8 @@ TextureImporter:
         y: 154
         width: 637
         height: 887
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4498843, y: 0.045620494}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -401,6 +401,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MAquina (1)_1
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 1123
+        width: 280
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe580851c8875845a6e54df037b7e15
+      internalID: -1155931530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -416,6 +438,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       MAquina (1)_0: -1626611322337839994
+      MAquina (1)_1: -1155931530
       MAquina (1)_10: 9026144283500363377
       MAquina (1)_11: 5077179884639560388
       MAquina (1)_15: -23354775642950766

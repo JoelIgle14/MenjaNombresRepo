@@ -1192,7 +1192,7 @@ MonoBehaviour:
   requiredResult: 0
   pointValue: 0
   orderType: 0
-  orderTime: 10
+  orderTime: 20
   timerBar: {fileID: 4424356709449247684}
   timerSprite: {fileID: 7203297221248435277}
   timerStartColor: {r: 0, g: 1, b: 0, a: 1}

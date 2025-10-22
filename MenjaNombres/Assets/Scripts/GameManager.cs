@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     private bool gameActive = true;
     public GameObject[] lifeObjects;
+    public TMP_Text Score;
 
     public static GameManager Instance;
 
@@ -339,7 +340,7 @@ public class GameManager : MonoBehaviour
     public void OnMonsterServed(int points)
     {
         score += points;
-        Debug.Log($"Score: {score}");
+        Score.text = "Puntuació: " + score;
     }
 
     public void OnMonsterFailed()

@@ -31,6 +31,7 @@ public class Monster : MonoBehaviour
     public float orderTime = 10f;
     private float timer;
     public Image timerBar;
+    public GameObject timerSprite;
     public Color timerStartColor = Color.green;
     public Color timerEndColor = Color.red;
 
@@ -64,9 +65,10 @@ public class Monster : MonoBehaviour
         }
 
         // Ocultar el timer visual al principio
-        if (timerBar != null)
+        if (timerBar != null && timerSprite != null)
         {
             timerBar.gameObject.SetActive(false);
+            timerSprite.SetActive(false);
         }
     }
 
@@ -96,8 +98,8 @@ public class Monster : MonoBehaviour
             // Scale effect when time is running low
             if (timePercent < 0.5f)
             {
-                float scaleAmount = 1f + Mathf.Sin(Time.time * 10f) * 0.1f;
-                timerBar.transform.localScale = new Vector3(scaleAmount, scaleAmount, 1f);
+                float scaleAmountSprite = timerSprite.transform.localScale.x + Mathf.Sin(Time.time * 10f) * 0.02f;
+                timerSprite.transform.localScale = new Vector3(scaleAmountSprite, scaleAmountSprite, 1f);
             }
         }
     }
@@ -157,8 +159,9 @@ public class Monster : MonoBehaviour
         }
 
         // Mostrar el timer visual
-        if (timerBar != null)
+        if (timerBar != null && timerSprite != null)
         {
+            timerSprite.SetActive(true);
             timerBar.gameObject.SetActive(true);
         }
 
@@ -327,6 +330,7 @@ public class Monster : MonoBehaviour
         if (speechBubbleInstance != null) Destroy(speechBubbleInstance);
         if (dropArea != null && dropArea.gameObject != null) Destroy(dropArea.gameObject);
         if (timerBar != null) timerBar.gameObject.SetActive(false);
+        if (timerSprite != null) timerSprite.gameObject.SetActive(false);
 
         Destroy(gameObject, 0.5f);
         if (Ui != null) Destroy(Ui);

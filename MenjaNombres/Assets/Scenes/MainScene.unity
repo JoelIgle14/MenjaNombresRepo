@@ -381,7 +381,7 @@ MonoBehaviour:
   Score: {fileID: 969281344}
   monsterTypes:
   - name: Basic Costumer
-    prefab: {fileID: 3702048572298197702, guid: 3d3d9e415db9bb44ba8a67f1f8aed180, type: 3}
+    prefab: {fileID: 7934938036700378104, guid: a9f8d8f75df7366449957d5286917bcb, type: 3}
     points: 200
     baseWeight: 7
     operationType: 0

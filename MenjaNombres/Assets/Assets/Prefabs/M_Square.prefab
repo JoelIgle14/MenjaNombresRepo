@@ -337,7 +337,9 @@ MonoBehaviour:
   timerStartColor: {r: 0, g: 1, b: 0, a: 1}
   timerEndColor: {r: 1, g: 0, b: 0, a: 1}
   idleAnimationName: Square_Idle
+  apperanceAnimationName: Square_Appearance
   hoverAnimationName: Square_Hover
+  rejectAnimationName: Square_Rechazar
 --- !u!1 &3722109047600749281
 GameObject:
   m_ObjectHideFlags: 0

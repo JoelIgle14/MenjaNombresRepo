@@ -21,9 +21,9 @@ public class FinalSceneManager : MonoBehaviour
         finalCompletedOrders = PlayerPrefs.GetInt("FinalCompletedOrders");
 
         // Mostrar los valores al inicio de la escena de Game Over
-        pointsText.text = "Puntuació: " + finalScore;
-        timeText.text = "Temps: " + Mathf.FloorToInt(finalGameTime) + " segundos";
-        completedOrdersText.text = "Comandes: " + finalCompletedOrders;
+        pointsText.text = "PUNTS: " + finalScore;
+        timeText.text = "TEMPS: " + Mathf.FloorToInt(finalGameTime);
+        completedOrdersText.text = "COMANDES: " + finalCompletedOrders;
     }
 
     public void PlayGame()

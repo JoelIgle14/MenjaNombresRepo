@@ -36,8 +36,9 @@ public class Monster : MonoBehaviour
 
     [Header("Animation")]
     public string idleAnimationName;
+    public string apperanceAnimationName;
     public string hoverAnimationName;
-
+    public string rejectAnimationName;
 
     private GameObject speechBubbleInstance;
     private GameObject DropInstance;
@@ -60,7 +61,9 @@ public class Monster : MonoBehaviour
             risingMonster.OnReachedTop += StartOrderTimer;
 
             // pasar los nombres de animación al RisingMonster
-            risingMonster.SetAnimationNames(idleAnimationName, hoverAnimationName);
+            risingMonster.SetAnimationNames(idleAnimationName, apperanceAnimationName);
+            risingMonster.SetHoverAnimation(hoverAnimationName);
+
         }
 
         // Ocultar el timer visual al principio
@@ -333,8 +336,6 @@ public class Monster : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
-
-
     void PlaySuccessAnimation()
     {
         Debug.Log($"{gameObject.name} - Order completed! Happy animation");
@@ -344,8 +345,12 @@ public class Monster : MonoBehaviour
     void PlayFailAnimation()
     {
         Debug.Log($"{gameObject.name} - Wrong number! Angry animation");
-        // Add your fail animation here
+
+        if (risingMonster != null && !string.IsNullOrEmpty(rejectAnimationName))
+            risingMonster.PlayAnimation(rejectAnimationName);
     }
+
+
 
     void PlayPartialSuccessAnimation()
     {
@@ -362,6 +367,18 @@ public class Monster : MonoBehaviour
     private void StartOrderTimer()
     {
         ShowOrderUI(); // cuando llega arriba, mostrar todo y empezar el timer
+    }
+
+    void OnMouseEnter()
+    {
+        if (risingMonster != null)
+            risingMonster.PlayAnimation(hoverAnimationName);
+    }
+
+    void OnMouseExit()
+    {
+        if (risingMonster != null)
+            risingMonster.PlayAnimation(idleAnimationName);
     }
 
 

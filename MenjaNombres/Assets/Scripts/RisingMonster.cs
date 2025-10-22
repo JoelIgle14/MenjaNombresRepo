@@ -24,7 +24,10 @@ public class RisingMonster : MonoBehaviour
     private Animator animator;
 
     private string idleAnimation;
+    private string appearanceAnimation;
     private string hoverAnimation;
+    private string rejectAnimation;
+
 
     void Start()
     {
@@ -50,8 +53,9 @@ public class RisingMonster : MonoBehaviour
         switch (currentState)
         {
             case State.Rising:
-                if (animator != null && !string.IsNullOrEmpty(hoverAnimation))
-                    animator.Play(hoverAnimation);
+                if (animator != null && !string.IsNullOrEmpty(appearanceAnimation))
+                    animator.Play(appearanceAnimation);
+
 
                 MoveTowards(targetPos);
                 if (HasReached(targetPos))
@@ -83,11 +87,26 @@ public class RisingMonster : MonoBehaviour
         }
     }
 
-
-    public void SetAnimationNames(string idle, string hover)
+    public void SetAnimationNames(string idle, string appearance)
     {
         idleAnimation = idle;
+        appearanceAnimation = appearance;
+    }
+
+    public void SetHoverAnimation(string hover)
+    {
         hoverAnimation = hover;
+    }
+
+    public void SetRejectAnimation(string reject)
+    {
+        rejectAnimation = reject;
+    }
+
+    public void PlayAnimation(string animationName)
+    {
+        if (animator != null && !string.IsNullOrEmpty(animationName))
+            animator.Play(animationName);
     }
 
 

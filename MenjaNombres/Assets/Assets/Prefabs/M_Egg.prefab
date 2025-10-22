@@ -1034,6 +1034,7 @@ MonoBehaviour:
   speechBubblePrefab: {fileID: 3129129227592769293, guid: c173eccc04dc5614facced21dcee8c98, type: 3}
   speechBubbleSpawnPoint: {fileID: 2340396281033182857}
   dropAreaSpawnPoint: {fileID: 2597837022900722060}
+  ResultPointOffset: 0
   dropAreaPrefab: {fileID: 2780974769838372084, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
   operation: 
   requiredResult: 0
@@ -1044,4 +1045,6 @@ MonoBehaviour:
   timerStartColor: {r: 0, g: 1, b: 0, a: 1}
   timerEndColor: {r: 1, g: 0, b: 0, a: 1}
   idleAnimationName: Egg_Idle
+  apperanceAnimationName: Egg_Appearance
   hoverAnimationName: Egg_Hover
+  rejectAnimationName: Egg_Rechazar

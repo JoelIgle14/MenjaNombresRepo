@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
     private bool gameActive = true;
     public GameObject[] lifeObjects;
     public TMP_Text Score;
+
+    public float gameTime = 0f;  // Tiempo de juego en segundos
+    public int completedOrders = 0;  // Pedidos completados
+
 
     public static GameManager Instance;
 
@@ -101,6 +106,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnWaveLoop());
         StartCoroutine(DifficultyProgression());
     }
+
+    void Update()
+    {
+        if (gameActive)
+        {
+            gameTime += Time.deltaTime;  
+        }
+    }
+
 
     IEnumerator DifficultyProgression()
     {
@@ -340,6 +354,7 @@ public class GameManager : MonoBehaviour
     public void OnMonsterServed(int points)
     {
         score += points;
+        completedOrders++;  
         Score.text = "Puntuació: " + score;
     }
 
@@ -364,10 +379,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     void GameOver()
     {
         gameActive = false;
         Debug.Log($"Game Over! Final Score: {score}");
+
+        // Cambiar a la escena de resultados
+        SceneManager.LoadScene("GameOverScene");
+
+        // Para pasar los datos a la nueva escena (usamos PlayerPrefs o un Singleton/ScriptableObject)
+        PlayerPrefs.SetInt("FinalScore", score);
+        PlayerPrefs.SetFloat("FinalGameTime", gameTime);
+        PlayerPrefs.SetInt("FinalCompletedOrders", completedOrders);
     }
+
 }

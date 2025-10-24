@@ -27,9 +27,24 @@ public class DragDropNumbers : MonoBehaviour
         col.enabled = false;
         Collider2D hitCollider = Physics2D.OverlapPoint(transform.position);
         col.enabled = true;
-        if (hitCollider != null && hitCollider.TryGetComponent(out NumberDropArea numberDropArea))
+
+        if (hitCollider != null)
         {
-            numberDropArea.OnNumberDrop(this, hitCollider.transform);
+            // Si se suelta sobre una zona válida de números
+            if (hitCollider.TryGetComponent(out NumberDropArea numberDropArea))
+            {
+                numberDropArea.OnNumberDrop(this, hitCollider.transform);
+            }
+            // Si se suelta sobre la papelera
+            else if (hitCollider.TryGetComponent(out TrashCanArea trashCan))
+            {
+                trashCan.OnItemDropped(this);
+                return; // se destruye, no necesitamos moverlo
+            }
+            else
+            {
+                transform.position = Holder.transform.position;
+            }
         }
         else
         {

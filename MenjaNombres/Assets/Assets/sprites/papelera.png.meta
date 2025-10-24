@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 64599eb59141ca346a5bc35cb7e38f8b
+guid: c6992ec526322bb4fb43e76e42df666a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -754613939004069636
-    second: bafarada_0
+      213: 883417965225738477
+    second: papelera_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bafarada_0
+      name: papelera_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 793
-        height: 709
+        x: 790
+        y: 1191
+        width: 893
+        height: 1358
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf8aa1fde921785f0800000000000000
-      internalID: -754613939004069636
+      spriteID: de08a7575f7824c00800000000000000
+      internalID: 883417965225738477
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bafarada_0: -754613939004069636
+      papelera_0: 883417965225738477
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

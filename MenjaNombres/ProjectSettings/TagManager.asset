@@ -41,9 +41,6 @@ TagManager:
   - name: Monster
     uniqueID: 2675128183
     locked: 0
-  - name: Belt
-    uniqueID: 970206915
-    locked: 0
   - name: Numbers
     uniqueID: 2371011599
     locked: 0

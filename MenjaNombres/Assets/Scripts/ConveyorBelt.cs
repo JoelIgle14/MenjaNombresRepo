@@ -93,7 +93,8 @@ public class ConveyorBelt : MonoBehaviour
     }
     public void QueueNumberSpawn(int value)
     {
-        pendingNumber = Mathf.Clamp(value, 1, 9);
+        pendingNumber = value;
         hasPendingNumber = true;
     }
+
 }

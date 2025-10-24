@@ -26,7 +26,6 @@ public class Adder : MonoBehaviour
         }
 
         int result = add ? a1.CurrentNum + a2.CurrentNum : Mathf.Abs(a1.CurrentNum - a2.CurrentNum);
-        result = Mathf.Clamp(result, 0, 20);
 
         // limpiar entradas
         Destroy(a1.num.gameObject);
@@ -40,6 +39,7 @@ public class Adder : MonoBehaviour
 
         StartCoroutine(PlayAnimationsThenSpawn(result));
     }
+
 
     private IEnumerator PlayAnimationsThenSpawn(int result)
     {

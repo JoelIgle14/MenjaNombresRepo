@@ -1,27 +1,35 @@
 using UnityEngine;
 using TMPro;
+
 public class DragDropNumbers : MonoBehaviour
 {
     public GameObject Holder;
     public int value;
     [SerializeField]
     private TMP_Text text;
+
     private Collider2D col;
     private Vector3 startDragPosition;
+    private Vector3 originalMachinePosition; // <- guardará la posición en la máquina
+    private bool isInMachine = false;        // <- sabremos si está en la máquina
+
     void Start()
     {
         col = GetComponent<Collider2D>();
     }
+
     private void OnMouseDown()
     {
-        transform.position = GetMousePositionInWorldSpace();
-        transform.position += new Vector3(0,0,-3);
+        // Guardamos la posición al empezar a arrastrar
+        startDragPosition = transform.position;
+        transform.position = GetMousePositionInWorldSpace() + new Vector3(0, 0, -3);
     }
+
     private void OnMouseDrag()
     {
-        transform.position = GetMousePositionInWorldSpace();
-        transform.position += new Vector3(0, 0, -3);
+        transform.position = GetMousePositionInWorldSpace() + new Vector3(0, 0, -3);
     }
+
     private void OnMouseUp()
     {
         col.enabled = false;
@@ -34,6 +42,8 @@ public class DragDropNumbers : MonoBehaviour
             if (hitCollider.TryGetComponent(out NumberDropArea numberDropArea))
             {
                 numberDropArea.OnNumberDrop(this, hitCollider.transform);
+                isInMachine = true;
+                originalMachinePosition = transform.position; // guardamos su nueva posición
             }
             // Si se suelta sobre la papelera
             else if (hitCollider.TryGetComponent(out TrashCanArea trashCan))
@@ -43,20 +53,39 @@ public class DragDropNumbers : MonoBehaviour
             }
             else
             {
-                transform.position = Holder.transform.position;
+                // Si estaba en la máquina, vuelve a su posición anterior en la máquina
+                if (isInMachine)
+                {
+                    transform.position = originalMachinePosition;
+                }
+                else
+                {
+                    // Si estaba en el holder, vuelve al holder
+                    transform.position = Holder.transform.position;
+                }
             }
         }
         else
         {
-            transform.position = Holder.transform.position;
+            // Igual: si estaba en máquina, vuelve ahí; si no, al holder
+            if (isInMachine)
+            {
+                transform.position = originalMachinePosition;
+            }
+            else
+            {
+                transform.position = Holder.transform.position;
+            }
         }
     }
+
     public Vector3 GetMousePositionInWorldSpace()
     {
         Vector3 p = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         p.z = 0f;
         return p;
     }
+
     public void UpdateVisual()
     {
         text.text = value.ToString();

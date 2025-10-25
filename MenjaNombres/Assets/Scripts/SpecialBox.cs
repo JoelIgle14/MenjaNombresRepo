@@ -58,6 +58,8 @@ public class SpecialBox : MonoBehaviour
                 if (value != -1)
                 {
                     numberDrop.OnNumberDropBox(this, hit.transform);
+                    GameManager.Instance.ActivateBoxEffect(effectType);
+
                 }
                 else
                 {
@@ -81,10 +83,28 @@ public class SpecialBox : MonoBehaviour
 
         value = number.value;
         attachedNumber = number.gameObject;
+
+        // Guardar referencia al holder del número
+        Transform targetHolder = null;
+        if (number.Holder != null)
+        {
+            targetHolder = number.Holder.transform;
+        }
+
         Destroy(number.gameObject); // eliminamos el número original
+
+        // Reparentar la caja al holder de ese número
+        if (targetHolder != null)
+        {
+            transform.SetParent(targetHolder);
+            transform.position = targetHolder.position;
+            Debug.Log($"[SpecialBox] Reparentada a holder '{targetHolder.name}' para seguir la cinta correcta.");
+        }
+
         UpdateVisual();
         Debug.Log($"[SpecialBox] Absorbió el número {value}");
     }
+
 
     public void UpdateVisual()
     {

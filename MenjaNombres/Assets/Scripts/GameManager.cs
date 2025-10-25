@@ -33,6 +33,15 @@ public class GameManager : MonoBehaviour
     public GameObject[] lifeObjects;
     public TMP_Text Score;
 
+    // ==== SPECIAL EFFECT SYSTEM ====
+    [Header("Special Effects (Runtime)")]
+    private bool blueEffectActive = false;
+    private bool yellowEffectActive = false;
+    private float yellowMultiplier = 1f;
+    private Coroutine yellowRoutine;
+    private Coroutine blueRoutine;
+
+
     public float gameTime = 0f;  // Tiempo de juego en segundos
     public int completedOrders = 0;  // Pedidos completados
 
@@ -442,6 +451,107 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] Spawning special box: {chosenBox.name} ({chosenBox.effectType})");
     }
+
+    public void ActivateBoxEffect(BoxEffectType effectType)
+    {
+        switch (effectType)
+        {
+            case BoxEffectType.BlueEffect:
+                if (blueRoutine != null) StopCoroutine(blueRoutine);
+                blueRoutine = StartCoroutine(BluePauseEffect());
+                break;
+
+            case BoxEffectType.YellowEffect:
+                if (yellowRoutine != null) StopCoroutine(yellowRoutine);
+                yellowRoutine = StartCoroutine(YellowDoublePoints());
+                break;
+
+            case BoxEffectType.GreenEffect:
+                ActivateGreenEffect();
+                break;
+
+            case BoxEffectType.PurpleEffect:
+                ActivatePurpleEffect();
+                break;
+        }
+    }
+
+    private IEnumerator BluePauseEffect()
+    {
+        blueEffectActive = true;
+        Debug.Log(" Blue Effect activated! Pausing all monsters for 10s");
+
+        // Pausar todos los timers
+        Monster[] monsters = FindObjectsOfType<Monster>();
+        foreach (var m in monsters)
+            m.PauseTimer(true);
+
+        yield return new WaitForSeconds(10f);
+
+        // Reanudar timers
+        foreach (var m in monsters)
+            m.PauseTimer(false);
+
+        blueEffectActive = false;
+        Debug.Log(" Blue Effect ended!");
+    }
+
+    private IEnumerator YellowDoublePoints()
+    {
+        yellowEffectActive = true;
+        yellowMultiplier = 2f;
+        Debug.Log(" Yellow Effect activated! Double points for 30s");
+
+        yield return new WaitForSeconds(30f);
+
+        yellowMultiplier = 1f;
+        yellowEffectActive = false;
+        Debug.Log(" Yellow Effect ended!");
+    }
+
+    private void ActivateGreenEffect()
+    {
+        Debug.Log(" Green Effect activated! More numbers spawning temporarily.");
+
+        ConveyorBelt[] belts = FindObjectsOfType<ConveyorBelt>();
+        foreach (var belt in belts)
+        {
+            belt.StartCoroutine(ExtraNumbersBurst(belt));
+        }
+    }
+
+    private IEnumerator ExtraNumbersBurst(ConveyorBelt belt)
+    {
+        float originalSpeed = belt.moveSpeed;
+        belt.moveSpeed *= 1.5f;
+
+        // Hacer que genere números adicionales temporalmente
+        for (int i = 0; i < 4; i++)
+        {
+            belt.QueueNumberSpawn(UnityEngine.Random.Range(1, 9));
+            yield return new WaitForSeconds(2f);
+        }
+
+        belt.moveSpeed = originalSpeed;
+    }
+
+    private void ActivatePurpleEffect()
+    {
+        Debug.Log("Purple Effect activated! Completing all orders instantly.");
+
+        Monster[] monsters = FindObjectsOfType<Monster>();
+        foreach (var m in monsters)
+        {
+            m.CompleteInstantly();
+        }
+    }
+
+    // Este método se llama por Monster al sumar puntos
+    public int ApplyScoreMultiplier(int basePoints)
+    {
+        return Mathf.RoundToInt(basePoints * yellowMultiplier);
+    }
+
 
 
     void GameOver()

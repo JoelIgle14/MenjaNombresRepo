@@ -304,7 +304,8 @@ bool CheckIntellectualOrder(int value)
             finalPoints = Mathf.RoundToInt(pointValue * 0.75f);
         }
 
-        GameManager.Instance.OnMonsterServed(finalPoints);
+        int finalScore = GameManager.Instance.ApplyScoreMultiplier(finalPoints);
+        GameManager.Instance.OnMonsterServed(finalScore);
 
         PlaySuccessAnimation();
 
@@ -398,6 +399,18 @@ bool CheckIntellectualOrder(int value)
     }
 
 
+    public void PauseTimer(bool pause)
+    {
+        timerActive = !pause;
+    }
+
+    public void CompleteInstantly()
+    {
+        if (!orderCompleted)
+        {
+            OnOrderCompleted();
+        }
+    }
 
 
     void OnDestroy()

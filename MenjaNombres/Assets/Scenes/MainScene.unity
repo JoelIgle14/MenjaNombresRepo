@@ -682,6 +682,18 @@ MonoBehaviour:
     baseWeight: 7
     operationType: 0
     currentWeight: 0
+  - name: Picky Customer
+    prefab: {fileID: 1291581701701788306, guid: b7146f045bb715d458ac6cc551cbc1cc, type: 3}
+    points: 250
+    baseWeight: 5
+    operationType: 3
+    currentWeight: 0
+  - name: Sophisiticated Customer
+    prefab: {fileID: 898114913206251525, guid: e328fdcae1b71324db3b9911ac96ef0b, type: 3}
+    points: 250
+    baseWeight: 5
+    operationType: 1
+    currentWeight: 0
   - name: Intellectual Customer
     prefab: {fileID: 3312467018059743159, guid: b2eff6e9b2d16af4f88a74be3004c515, type: 3}
     points: 300
@@ -2739,8 +2751,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.62, y: -394}
-  m_SizeDelta: {x: 1974.32, y: 627.09}
+  m_AnchoredPosition: {x: 2.62, y: -390.01}
+  m_SizeDelta: {x: 1974.32, y: 635.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897632647
 MonoBehaviour:

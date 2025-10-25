@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+using System;
+using Random = UnityEngine.Random;
+using Debug = UnityEngine.Debug;
 
 public class GameManager : MonoBehaviour
 {
@@ -77,8 +81,31 @@ public class GameManager : MonoBehaviour
         public float multiplierWeight = 0.1f;
     }
 
+
     [Header("Monster Types")]
     public List<MonsterType> monsterTypes = new List<MonsterType>();
+
+    public enum BoxEffectType
+    {
+        BlueEffect,
+        YellowEffect,
+        GreenEffect,
+        PurpleEffect
+    }
+
+    [System.Serializable]
+    public class BoxType
+    {
+        public string name;
+        public GameObject prefab;
+        public BoxEffectType effectType;
+    }
+
+    [Header("Box Configuration")]
+    public List<BoxType> boxTypes = new List<BoxType>();
+    public float specialBoxInterval = 20f; // Cada 20 segundos aparece una caja
+    private float nextBoxTime = 0f;
+
 
     void Awake()
     {
@@ -105,6 +132,8 @@ public class GameManager : MonoBehaviour
         ApplyDifficulty(0);
         StartCoroutine(SpawnWaveLoop());
         StartCoroutine(DifficultyProgression());
+        nextBoxTime = specialBoxInterval; // primer spawn de caja a los 20 segundos
+
     }
 
     void Update()
@@ -112,7 +141,14 @@ public class GameManager : MonoBehaviour
         if (gameActive)
         {
             gameTime += Time.deltaTime;  
+
         }
+        if (gameActive && gameTime >= nextBoxTime)
+        {
+            SpawnSpecialBoxOnRandomBelt();
+            nextBoxTime += specialBoxInterval;
+        }
+
     }
 
 
@@ -389,6 +425,24 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
+
+    void SpawnSpecialBoxOnRandomBelt()
+    {
+        ConveyorBelt[] belts = FindObjectsOfType<ConveyorBelt>();
+        if (belts.Length == 0 || boxTypes.Count == 0) return;
+
+        // Elegir una cinta aleatoria
+        ConveyorBelt randomBelt = belts[Random.Range(0, belts.Length)];
+
+        // Elegir un tipo de caja aleatorio
+        BoxType chosenBox = boxTypes[Random.Range(0, boxTypes.Count)];
+
+        // Pedirle a la cinta que genere una caja especial
+        randomBelt.QueueBoxSpawn(chosenBox.prefab, chosenBox.effectType);
+
+        Debug.Log($"[GameManager] Spawning special box: {chosenBox.name} ({chosenBox.effectType})");
+    }
+
 
     void GameOver()
     {

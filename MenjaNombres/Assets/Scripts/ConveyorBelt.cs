@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
+using Random = UnityEngine.Random;
+using Debug = UnityEngine.Debug;
 
 public class ConveyorBelt : MonoBehaviour
 {
@@ -10,8 +13,14 @@ public class ConveyorBelt : MonoBehaviour
     public Transform[] numberHolders;
     public GameObject numberPrefab;
     private Vector3[] startPositions;
-     public bool hasPendingNumber = false;
+    public bool hasPendingNumber = false;
     private int pendingNumber = 0;
+
+    private bool hasPendingBox = false;
+    private GameObject pendingBoxPrefab;
+    private GameManager.BoxEffectType pendingBoxEffect;
+
+
     void Start()
     {
         startPositions = new Vector3[numberHolders.Length];
@@ -26,6 +35,14 @@ public class ConveyorBelt : MonoBehaviour
     {
         MoveHolders();
     }
+
+
+    public void QueueBoxSpawn(GameObject prefab, GameManager.BoxEffectType effect)
+    {
+        pendingBoxPrefab = prefab;
+        pendingBoxEffect = effect;
+        hasPendingBox = true;
+    }
     void MoveHolders()
     {
         float direction = moveRight ? 1f : -1f;
@@ -39,9 +56,13 @@ public class ConveyorBelt : MonoBehaviour
                 if (canSpawnNumber)
                 {
                     // Check if Adder requested a specific number
-                    if (hasPendingNumber)
+                    if (hasPendingBox)
                     {
-                        print("here");
+                        SpawnSpecialBox(holder, pendingBoxPrefab, pendingBoxEffect);
+                        hasPendingBox = false;
+                    }
+                    else if (hasPendingNumber)
+                    {
                         SpawnSpecificNumber(holder, pendingNumber);
                         hasPendingNumber = false;
                     }
@@ -49,10 +70,27 @@ public class ConveyorBelt : MonoBehaviour
                     {
                         SpawnNumber(holder);
                     }
+
                 }
             }
         }
     }
+
+    void SpawnSpecialBox(Transform holder, GameObject prefab, GameManager.BoxEffectType effect)
+    {
+        foreach (Transform child in holder)
+            Destroy(child.gameObject);
+
+        GameObject box = Instantiate(prefab, holder.position, Quaternion.identity, holder);
+
+        // Si en el futuro tiene script, puedes inicializarlo así:
+        // var boxScript = box.GetComponent<SpecialBox>();
+        // if (boxScript != null)
+        //     boxScript.Initialize(effect);
+
+        Debug.Log($"[ConveyorBelt] Spawned special box with effect: {effect}");
+    }
+
     bool IsOutOfScreen(Vector3 position)
     {
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(position);

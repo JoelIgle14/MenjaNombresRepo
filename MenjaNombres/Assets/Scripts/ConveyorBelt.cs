@@ -83,13 +83,15 @@ public class ConveyorBelt : MonoBehaviour
 
         GameObject box = Instantiate(prefab, holder.position, Quaternion.identity, holder);
 
-        // Si en el futuro tiene script, puedes inicializarlo así:
-        // var boxScript = box.GetComponent<SpecialBox>();
-        // if (boxScript != null)
-        //     boxScript.Initialize(effect);
+        var boxScript = box.GetComponent<SpecialBox>();
+        if (boxScript != null)
+        {
+            boxScript.effectType = effect;
+        }
 
         Debug.Log($"[ConveyorBelt] Spawned special box with effect: {effect}");
     }
+
 
     bool IsOutOfScreen(Vector3 position)
     {

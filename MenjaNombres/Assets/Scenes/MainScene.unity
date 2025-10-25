@@ -1891,6 +1891,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 273572512186767325, guid: b405f733e6f676142ac54a6806942c03, type: 3}
   m_PrefabInstance: {fileID: 1122830301}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &638957332 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6200391002118700762, guid: b405f733e6f676142ac54a6806942c03, type: 3}
+  m_PrefabInstance: {fileID: 1122830301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &652930398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,10 +2127,10 @@ MonoBehaviour:
   a2: {fileID: 1229506715}
   belt: {fileID: 702277775}
   gameManager: {fileID: 153740806}
-  animator: {fileID: 0}
-  combineAnimationName: 
-  cookAnimationName: 
-  idleAnimationName: Idle
+  animator: {fileID: 1221323336}
+  combineAnimationName: Operating
+  cookAnimationName: OperatingPt2
+  idleAnimationName: IdleMachine
 --- !u!4 &719106240
 Transform:
   m_ObjectHideFlags: 0
@@ -3722,6 +3727,11 @@ PrefabInstance:
 --- !u!4 &1221323335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 273572512186767325, guid: e6393473e5d04b84fa462657dd9a7fb5, type: 3}
+  m_PrefabInstance: {fileID: 6743025137975746282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1221323336 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6200391002118700762, guid: e6393473e5d04b84fa462657dd9a7fb5, type: 3}
   m_PrefabInstance: {fileID: 6743025137975746282}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1229506714
@@ -5348,10 +5358,10 @@ MonoBehaviour:
   a2: {fileID: 813871245}
   belt: {fileID: 1867363682}
   gameManager: {fileID: 153740806}
-  animator: {fileID: 0}
-  combineAnimationName: 
-  cookAnimationName: 
-  idleAnimationName: Idle
+  animator: {fileID: 638957332}
+  combineAnimationName: Operaitng
+  cookAnimationName: OperatingPt2
+  idleAnimationName: IdleMachine
 --- !u!4 &1997966655
 Transform:
   m_ObjectHideFlags: 0

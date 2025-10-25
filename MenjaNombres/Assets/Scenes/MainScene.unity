@@ -719,7 +719,7 @@ MonoBehaviour:
   - name: Numbers
     prefab: {fileID: 568016950704934354, guid: 6be4139a80d4fc54089951ff0716ab8f, type: 3}
     effectType: 2
-  specialBoxInterval: 5
+  specialBoxInterval: 20
 --- !u!4 &153740807
 Transform:
   m_ObjectHideFlags: 0

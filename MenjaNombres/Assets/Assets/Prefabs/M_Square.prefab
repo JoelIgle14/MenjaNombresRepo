@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 768152028747654415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.98, y: 0.7, z: 0}
+  m_LocalPosition: {x: 4.9, y: -1.56, z: 0}
   m_LocalScale: {x: 1.3262999, y: 2.6044996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,13 +325,13 @@ MonoBehaviour:
   speechBubblePrefab: {fileID: 3129129227592769293, guid: c173eccc04dc5614facced21dcee8c98, type: 3}
   speechBubbleSpawnPoint: {fileID: 4074298446989400571}
   dropAreaSpawnPoint: {fileID: 2890740390026401960}
-  ResultPointOffset: 3
+  ResultPointOffset: 0
   dropAreaPrefab: {fileID: 2780974769838372084, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
   operation: 
   requiredResult: 0
   pointValue: 0
   orderType: 0
-  orderTime: 10
+  orderTime: 20
   timerBar: {fileID: 575090525706383379}
   timerSprite: {fileID: 3864524298674420995}
   timerStartColor: {r: 0, g: 1, b: 0, a: 1}

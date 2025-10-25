@@ -689,7 +689,7 @@ MonoBehaviour:
     operationType: 3
     currentWeight: 0
   - name: Sophisiticated Customer
-    prefab: {fileID: 898114913206251525, guid: e328fdcae1b71324db3b9911ac96ef0b, type: 3}
+    prefab: {fileID: 3702048572298197702, guid: 3d3d9e415db9bb44ba8a67f1f8aed180, type: 3}
     points: 250
     baseWeight: 5
     operationType: 1
@@ -699,6 +699,12 @@ MonoBehaviour:
     points: 300
     baseWeight: 3
     operationType: 4
+    currentWeight: 0
+  - name: Multiplier Customer
+    prefab: {fileID: 547625048845922028, guid: 4533043fca4d82a40a60e15b922a660c, type: 3}
+    points: 300
+    baseWeight: 3
+    operationType: 5
     currentWeight: 0
 --- !u!4 &153740807
 Transform:

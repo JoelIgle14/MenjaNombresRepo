@@ -285,7 +285,7 @@ public class GameManager : MonoBehaviour
         {
             case OperationType.BasicClient:
                 result = Random.Range(min, max + 1);
-                return $"Wants {result}";
+                return $"Vull menjar-me el nombre {result}";
 
             case OperationType.SophisticatedCustomer:
                 if (Random.value < 0.5f)
@@ -293,14 +293,23 @@ public class GameManager : MonoBehaviour
                     int a = Random.Range(1, max / 2);
                     int b = Random.Range(1, max / 2);
                     result = a + b;
-                    return $"{a} + {b} = ?";
+                    return $"Vull menjar-me\n {a} + {b} = ?";
                 }
                 else
                 {
-                    int res = Random.Range(min + 2, max + 1);
-                    int x = Random.Range(1, res);
-                    result = res - x;
-                    return $"{res} - X = {x}";
+                    int a = Random.Range(1, max / 2);
+                    int b = Random.Range(1, max / 2);
+
+                    // Evitar resultados negativos
+                    if (b > a)
+                    {
+                        int temp = a;
+                        a = b;
+                        b = temp;
+                    }
+
+                    result = a - b;
+                    return $"Vull menjar-me\n {a} - {b} = ?";
                 }
 
             case OperationType.SequentialCustomer:
@@ -315,30 +324,32 @@ public class GameManager : MonoBehaviour
                 result = Random.Range(min, max + 1);
                 while ((result % 2 == 0) != even)
                     result = Random.Range(min, max + 1);
-                return even ? "Even only" : "Odd only";
+                return even ? "Per menjar solament vull nombres parells" : "Solament vull nombres imparells";
 
             case OperationType.IntellectualCustomer:
                 int rangeMin = Random.Range(min, max - 2);
                 int rangeMax = Random.Range(rangeMin + 2, max + 1);
                 result = Random.Range(rangeMin, rangeMax + 1);
-                string parity = (result % 2 == 0) ? "even" : "odd";
-                return $"Find {parity} between {rangeMin} and {rangeMax}";
+                string parity = (result % 2 == 0) ? "parell" : "imparell";
+                return $"Vull un nombre {parity} entre {rangeMin} i {rangeMax} per menjar!";
 
             case OperationType.MultiplierCustomer:
                 if (Random.value < 0.5f)
                 {
-                    int a = Random.Range(2, Mathf.Min(5, max / 2));
-                    int b = Random.Range(2, Mathf.Min(5, max / 2));
+                    int a = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
+                    int b = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     result = a * b;
-                    return $"{a} × {b} = ?";
+                    return $"\"Porta’m una ració de {a} multiplicat {b}, i no t’equivoquis, eh?\"\n{a} × {b} = ?";
                 }
                 else
                 {
-                    int divisor = Random.Range(2, Mathf.Min(5, max / 2));
-                    int quotient = Random.Range(2, max / divisor);
-                    result = divisor * quotient;
-                    return $"{result} ÷ {divisor} = ?";
+                    int divisor = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
+                    int quotient = Random.Range(2, Mathf.Clamp(max / divisor, 3, max));
+                    int dividend = divisor * quotient; // número que se mostrará
+                    result = quotient; // el resultado correcto de la operación
+                    return $"\"Porta’m una ració de {dividend} dividit {divisor}, i no t’equivoquis, eh?\"\n{dividend} × {divisor} = ?";
                 }
+
 
             default:
                 result = Random.Range(min, max + 1);

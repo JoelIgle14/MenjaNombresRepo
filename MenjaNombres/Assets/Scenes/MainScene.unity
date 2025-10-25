@@ -697,7 +697,7 @@ MonoBehaviour:
   - name: Intellectual Customer
     prefab: {fileID: 3312467018059743159, guid: b2eff6e9b2d16af4f88a74be3004c515, type: 3}
     points: 300
-    baseWeight: 6
+    baseWeight: 60000
     operationType: 4
     currentWeight: 0
   - name: Multiplier Customer

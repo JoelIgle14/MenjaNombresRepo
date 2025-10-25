@@ -226,7 +226,9 @@ public class Monster : MonoBehaviour
 
             case GameManager.OperationType.PickyCustomer:
                 bool isEven = (value % 2 == 0);
-                bool needsEven = operation.Contains("Even");
+                string opLower = operation.ToLower();
+                bool needsEven = opLower.Contains("parells") && !opLower.Contains("imparells");
+
                 isCorrect = (isEven == needsEven);
                 break;
 
@@ -250,30 +252,40 @@ public class Monster : MonoBehaviour
         }
     }
 
-    bool CheckIntellectualOrder(int value)
+bool CheckIntellectualOrder(int value)
+{
+    string opLower = operation.ToLower();
+
+    // Detectar explícitament si vol parell o imparell
+    bool wantsOdd = opLower.Contains("imparell");
+    bool wantsEven = opLower.Contains("parell") && !wantsOdd;
+
+    bool isEven = (value % 2 == 0);
+
+    // Si vol imparell i el valor és parell  incorrecte
+    // Si vol parell i el valor és imparell  incorrecte
+    if (wantsEven && !isEven) return false;
+    if (wantsOdd && isEven) return false;
+
+    // Extreure el rang ("entre X i Y")
+    int min = int.MinValue;
+    int max = int.MaxValue;
+
+    string[] words = opLower.Split(' ');
+    for (int i = 0; i < words.Length - 3; i++)
     {
-        // Parse "Find even between 3 and 9"
-        bool needsEven = operation.Contains("even");
-        bool isEven = (value % 2 == 0);
-
-        if (isEven != needsEven)
-            return false;
-
-        // Extract range (simple parsing)
-        string[] words = operation.Split(' ');
-        for (int i = 0; i < words.Length - 2; i++)
+        if (words[i] == "entre" && int.TryParse(words[i + 1], out min) && int.TryParse(words[i + 3], out max))
         {
-            if (words[i] == "between" && int.TryParse(words[i + 1], out int min))
-            {
-                if (int.TryParse(words[i + 3], out int max))
-                {
-                    return value >= min && value <= max;
-                }
-            }
+            break;
         }
-
-        return value == requiredResult;
     }
+
+    bool inRange = (value >= min && value <= max);
+
+
+    return inRange;
+}
+
 
     void OnOrderCompleted()
     {

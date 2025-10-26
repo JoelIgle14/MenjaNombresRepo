@@ -30,13 +30,6 @@ public class CameraEffects : MonoBehaviour
         if (damage && vignetteImage)
             StartCoroutine(DamageVignette());
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.X))
-        {
-            CameraShake(0.1f,true);
-        }
-    }
 
     public void Damage()
     {

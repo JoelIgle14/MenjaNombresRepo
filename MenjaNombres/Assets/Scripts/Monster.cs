@@ -48,10 +48,16 @@ public class Monster : MonoBehaviour
 
     GameObject Ui;
 
-    CameraEffects effects;
+    PlAud aud;
 
+    CameraEffects effects;
+    private void OnEnable()
+    {
+        aud = GetComponent<PlAud>();
+    }
     public void Initialize(string op, int result, int points, GameManager.OperationType type)
     {
+        aud = GetComponent<PlAud>();
         operation = op;
         requiredResult = result;
         pointValue = points;
@@ -325,6 +331,7 @@ bool CheckIntellectualOrder(int value)
     {
         effects = Camera.main.GetComponent<CameraEffects>();
         effects.CameraShake(0.3f, true);
+        aud.PlayAud();
         // Reduce timer as penalty
         timer -= 2f;
         dropArea.ClearNumber();

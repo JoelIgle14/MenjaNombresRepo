@@ -69,7 +69,7 @@ public class Adder : MonoBehaviour
         aud.PlayAud();
         belt.PlaySmokeParticles();
         // Esperar un poco y luego mostrar el resultado en la cinta
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.1f);
         belt.QueueNumberSpawn(result);
         resultSpawned = true;
 

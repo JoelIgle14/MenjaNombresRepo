@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public float gameTime = 0f;  // Tiempo de juego en segundos
     public int completedOrders = 0;  // Pedidos completados
 
+    PlAud aud;
 
     public static GameManager Instance;
 
@@ -127,6 +128,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        aud = GetComponent<PlAud>();
         if (monsterTypes.Count == 0)
         {
             Debug.LogError("No monster types assigned in GameManager.");
@@ -419,6 +422,7 @@ public class GameManager : MonoBehaviour
     {
         if (lives > 0)
         {
+            aud.PlayAud();
             lives--;
             effects.Damage();
             // Solo destruir si el índice sigue válido

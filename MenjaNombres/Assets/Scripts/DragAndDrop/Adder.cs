@@ -43,6 +43,7 @@ public class Adder : MonoBehaviour
 
     private IEnumerator PlayAnimationsThenSpawn(int result)
     {
+
         if (animator != null)
         {
             // Animación de combinar (una vez)
@@ -62,8 +63,9 @@ public class Adder : MonoBehaviour
             }
         }
 
+        belt.PlaySmokeParticles();
         // Esperar un poco y luego mostrar el resultado en la cinta
-        yield return new WaitForSeconds(2f); // puedes ajustar el tiempo de "cocción"
+        yield return new WaitForSeconds(1.3f);
         belt.QueueNumberSpawn(result);
         resultSpawned = true;
 

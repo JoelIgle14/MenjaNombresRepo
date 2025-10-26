@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f57a49c7501d2f945a27c0800724eea7
+guid: d8938de870fb4134b947c5ed87867bbf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8209999583250659133
-    second: Humo2_0
+      213: 1082752296917887214
+    second: humo3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Humo2_0
+      name: humo3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 416
-        height: 578
+        width: 230
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d37b2cd5f17cfe170800000000000000
-      internalID: 8209999583250659133
+      spriteID: ee867853a75b60f00800000000000000
+      internalID: 1082752296917887214
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Humo2_0: 8209999583250659133
+      humo3_0: 1082752296917887214
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -38,7 +38,14 @@ public class ConveyorBelt : MonoBehaviour
         MoveHolders();
     }
 
-
+    public void PlaySmokeParticles()
+    {
+        if (particles != null)
+        {
+            particles.Play();
+            print("palyer");
+        }
+    }
     public void QueueBoxSpawn(GameObject prefab, GameManager.BoxEffectType effect)
     {
         pendingBoxPrefab = prefab;
@@ -115,14 +122,11 @@ public class ConveyorBelt : MonoBehaviour
     }
     void SpawnSpecificNumber(Transform holder, int value)
     {
-        if(particles != null)
-        {
-            particles.Play();
-        }
         foreach (Transform numero in holder)
             Destroy(numero.gameObject);
         GameObject num = Instantiate(numberPrefab, holder.position, Quaternion.identity, holder);
         DragDropNumbers drag = num.GetComponent<DragDropNumbers>();
+        num.GetComponent<SpriteRenderer>().color = Color.grey;
         if (drag != null)
         {
             drag.value = value;

@@ -16,8 +16,11 @@ public class SpecialBox : MonoBehaviour
     private Vector3 originalPosition;
     private bool isDragging = false;
 
+    PlAud aud;
+
     void Start()
     {
+        aud = GetComponent<PlAud>();
         col = GetComponent<Collider2D>();
         text = GetComponentInChildren<TMP_Text>();
         UpdateVisual();
@@ -25,6 +28,7 @@ public class SpecialBox : MonoBehaviour
 
     private void OnMouseDown()
     {
+        aud.PlayAud();
         startDragPosition = transform.position;
         isDragging = true;
     }
@@ -37,6 +41,7 @@ public class SpecialBox : MonoBehaviour
 
     private void OnMouseUp()
     {
+        aud.PlayAud();
         isDragging = false;
         col.enabled = false;
         Collider2D hit = Physics2D.OverlapPoint(transform.position);

@@ -13,13 +13,17 @@ public class DragDropNumbers : MonoBehaviour
     private Vector3 originalMachinePosition; // <- guardará la posición en la máquina
     private bool isInMachine = false;        // <- sabremos si está en la máquina
 
+    PlAud aud;
+
     void Start()
     {
         col = GetComponent<Collider2D>();
+        aud = GetComponent<PlAud>();
     }
 
     private void OnMouseDown()
     {
+        aud.PlayAud();
         // Guardamos la posición al empezar a arrastrar
         startDragPosition = transform.position;
         transform.position = GetMousePositionInWorldSpace() + new Vector3(0, 0, -3);
@@ -32,6 +36,7 @@ public class DragDropNumbers : MonoBehaviour
 
     private void OnMouseUp()
     {
+        aud.PlayAud();
         col.enabled = false;
         Collider2D hitCollider = Physics2D.OverlapPoint(transform.position);
         col.enabled = true;

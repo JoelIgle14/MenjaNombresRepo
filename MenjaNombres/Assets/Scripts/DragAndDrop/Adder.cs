@@ -16,7 +16,11 @@ public class Adder : MonoBehaviour
     [SerializeField] private string idleAnimationName = "Idle"; // volver al idle opcional
 
     private bool resultSpawned = false;
-
+    PlAud aud;
+    private void Start()
+    {
+        aud = GetComponent<PlAud>();
+    }
     public void Add()
     {
         if (a1.CurrentNum == 0 || a2.CurrentNum == 0)
@@ -62,7 +66,7 @@ public class Adder : MonoBehaviour
                 StartCoroutine(LoopCookAnimationUntilResult());
             }
         }
-
+        aud.PlayAud();
         belt.PlaySmokeParticles();
         // Esperar un poco y luego mostrar el resultado en la cinta
         yield return new WaitForSeconds(1.3f);

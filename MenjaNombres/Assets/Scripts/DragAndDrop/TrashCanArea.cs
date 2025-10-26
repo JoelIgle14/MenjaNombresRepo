@@ -7,6 +7,7 @@ public class TrashCanArea : MonoBehaviour
     public void OnItemDropped(DragDropNumbers number)
     {
         effects.CameraShake(0.1f, false);
+        this.GetComponent<PlAud>().PlayAud();
         Destroy(number.gameObject);
     }
 }

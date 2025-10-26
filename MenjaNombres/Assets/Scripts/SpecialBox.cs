@@ -65,7 +65,6 @@ public class SpecialBox : MonoBehaviour
                 {
                     Debug.Log("[SpecialBox] No tiene número todavía.");
                 }
-                return;
             }
         }
 

@@ -16,6 +16,8 @@ public class ConveyorBelt : MonoBehaviour
     public bool hasPendingNumber = false;
     private int pendingNumber = 0;
 
+    public ParticleSystem particles;
+
     private bool hasPendingBox = false;
     private GameObject pendingBoxPrefab;
     private GameManager.BoxEffectType pendingBoxEffect;
@@ -113,6 +115,10 @@ public class ConveyorBelt : MonoBehaviour
     }
     void SpawnSpecificNumber(Transform holder, int value)
     {
+        if(particles != null)
+        {
+            particles.Play();
+        }
         foreach (Transform numero in holder)
             Destroy(numero.gameObject);
         GameObject num = Instantiate(numberPrefab, holder.position, Quaternion.identity, holder);

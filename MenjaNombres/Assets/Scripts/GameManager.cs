@@ -369,7 +369,7 @@ public class GameManager : MonoBehaviour
                 result = Random.Range(min, max + 1);
                 while ((result % 2 == 0) != even)
                     result = Random.Range(min, max + 1);
-                return even ? "Per menjar solament vull nombres parells" : "Solament vull nombres imparells";
+                return even ? "Per menjar només vull nombres parells" : "Només vull nombres imparells";
 
             case OperationType.IntellectualCustomer:
                 int rangeMin = Random.Range(min, max - 2);
@@ -384,7 +384,7 @@ public class GameManager : MonoBehaviour
                     int a = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     int b = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     result = a * b;
-                    return $"\"Porta’m una ració de {a} multiplicat {b}, i no t’equivoquis, eh?\"\n{a} × {b} = ?";
+                    return $"\"Porta’m una ració de {a} multiplicat {b}\"{a} × {b} = ?";
                 }
                 else
                 {
@@ -392,7 +392,7 @@ public class GameManager : MonoBehaviour
                     int quotient = Random.Range(2, Mathf.Clamp(max / divisor, 3, max));
                     int dividend = divisor * quotient; // número que se mostrará
                     result = quotient; // el resultado correcto de la operación
-                    return $"\"Porta’m una ració de {dividend} dividit {divisor}, i no t’equivoquis, eh?\"\n{dividend} × {divisor} = ?";
+                    return $"\"Porta’m una ració de {dividend} dividit {divisor}, \"{dividend} / {divisor} = ?";
                 }
 
 

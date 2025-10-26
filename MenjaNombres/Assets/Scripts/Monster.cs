@@ -48,6 +48,8 @@ public class Monster : MonoBehaviour
 
     GameObject Ui;
 
+    CameraEffects effects;
+
     public void Initialize(string op, int result, int points, GameManager.OperationType type)
     {
         operation = op;
@@ -321,6 +323,8 @@ bool CheckIntellectualOrder(int value)
 
     void OnWrongNumber()
     {
+        effects = Camera.main.GetComponent<CameraEffects>();
+        effects.CameraShake(0.3f, true);
         // Reduce timer as penalty
         timer -= 2f;
         dropArea.ClearNumber();

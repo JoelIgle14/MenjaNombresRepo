@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     private float yellowMultiplier = 1f;
     private Coroutine yellowRoutine;
     private Coroutine blueRoutine;
+    public CameraEffects effects;
 
 
     public float gameTime = 0f;  // Tiempo de juego en segundos
@@ -419,7 +420,7 @@ public class GameManager : MonoBehaviour
         if (lives > 0)
         {
             lives--;
-
+            effects.Damage();
             // Solo destruir si el índice sigue válido
             if (lives >= 0 && lives < lifeObjects.Length && lifeObjects[lives] != null)
             {

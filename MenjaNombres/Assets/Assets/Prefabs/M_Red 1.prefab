@@ -97,10 +97,10 @@ MonoBehaviour:
   timerSprite: {fileID: 2212781960943910231}
   timerStartColor: {r: 0, g: 1, b: 0, a: 1}
   timerEndColor: {r: 1, g: 0, b: 0, a: 1}
-  idleAnimationName: Red_Monster_Idel
-  apperanceAnimationName: Red_Monster_Hover
+  idleAnimationName: Red_Monster_Idle
+  apperanceAnimationName: Red_Monster_Aparicion
   hoverAnimationName: Red_Monster_Hover
-  rejectAnimationName: Red_Monster_Rechazoechazo
+  rejectAnimationName: Red_Rechazo
 --- !u!114 &2863003054018219888
 MonoBehaviour:
   m_ObjectHideFlags: 0

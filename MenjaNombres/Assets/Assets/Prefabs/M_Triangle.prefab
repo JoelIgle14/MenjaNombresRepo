@@ -467,7 +467,7 @@ MonoBehaviour:
   idleAnimationName: Triangle_Idle
   apperanceAnimationName: Triangle_Appearance
   hoverAnimationName: Triangle_Hover
-  rejectAnimationName: Trinagle_Rechazar
+  rejectAnimationName: Triangle_Rechazar
 --- !u!114 &-2348276843626303883
 MonoBehaviour:
   m_ObjectHideFlags: 0

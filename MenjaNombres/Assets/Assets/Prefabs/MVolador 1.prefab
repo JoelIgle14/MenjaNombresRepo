@@ -336,9 +336,9 @@ MonoBehaviour:
   timerStartColor: {r: 0, g: 1, b: 0, a: 1}
   timerEndColor: {r: 1, g: 0, b: 0, a: 1}
   idleAnimationName: MVolador_Idel
-  apperanceAnimationName: M.Volador_Aparece
-  hoverAnimationName: M.Volador_Hover
-  rejectAnimationName: M.Volador_Negar
+  apperanceAnimationName: M_Volador_Aparece
+  hoverAnimationName: M_Volador_Hover
+  rejectAnimationName: M_Volador_Negar
 --- !u!114 &-4527937317196335200
 MonoBehaviour:
   m_ObjectHideFlags: 0

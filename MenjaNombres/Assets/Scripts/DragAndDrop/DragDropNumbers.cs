@@ -10,19 +10,22 @@ public class DragDropNumbers : MonoBehaviour
 
     private Collider2D col;
     private Vector3 startDragPosition;
-    private Vector3 originalMachinePosition; // <- guardará la posición en la máquina
-    private bool isInMachine = false;        // <- sabremos si está en la máquina
+    private Vector3 originalMachinePosition; 
+    private bool isInMachine = false;        
 
     PlAud aud;
+    ScaleAnimator scaleAnimator;
 
     void Start()
     {
+        scaleAnimator = GetComponent<ScaleAnimator>();
         col = GetComponent<Collider2D>();
         aud = GetComponent<PlAud>();
     }
 
     private void OnMouseDown()
     {
+        scaleAnimator.PlayScale(0.3f, 0.2f);
         aud.PlayAud();
         // Guardamos la posición al empezar a arrastrar
         startDragPosition = transform.position;

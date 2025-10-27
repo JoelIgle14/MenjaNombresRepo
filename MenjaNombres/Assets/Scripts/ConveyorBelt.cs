@@ -126,7 +126,7 @@ public class ConveyorBelt : MonoBehaviour
             Destroy(numero.gameObject);
         GameObject num = Instantiate(numberPrefab, holder.position, Quaternion.identity, holder);
         DragDropNumbers drag = num.GetComponent<DragDropNumbers>();
-        num.GetComponent<SpriteRenderer>().color = Color.grey;
+        num.GetComponent<SpriteRenderer>().color = Color.green * Color.gray;
         if (drag != null)
         {
             drag.value = value;

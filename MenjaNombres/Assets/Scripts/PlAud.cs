@@ -9,7 +9,7 @@ public class PlAud : MonoBehaviour
 
     public void PlayAud()
     {
-        source.clip = clips[Random.RandomRange(0, clips.Length)];
+        source.clip = clips[Random.Range(0, clips.Length)];
         source.Play();
     }
 }

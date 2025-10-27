@@ -16,8 +16,9 @@ public class RisingMonster : MonoBehaviour
     private enum State { Rising, Waiting, Falling, Idle }
     private State currentState = State.Rising;
 
-    private Vector3 startPos    ;
+    private Vector3 startPos;
     public Vector3 targetPos;
+    private Vector3 topPos; //  guardamos la posición exacta al llegar arriba
 
     public event Action OnReachedTop;
 
@@ -56,21 +57,20 @@ public class RisingMonster : MonoBehaviour
                 if (animator != null && !string.IsNullOrEmpty(appearanceAnimation))
                     animator.Play(appearanceAnimation);
 
-
                 MoveTowards(targetPos);
+
                 if (HasReached(targetPos))
                 {
                     currentState = State.Waiting;
+                    topPos = transform.position; //  guardamos la posición exacta arriba
                     OnReachedTop?.Invoke();
 
-                    // Cambiar a idle cuando llega arriba
                     if (animator != null && !string.IsNullOrEmpty(idleAnimation))
                         animator.Play(idleAnimation);
                 }
                 break;
 
             case State.Waiting:
-                // No hace nada más, sólo mantiene idle
                 break;
 
             case State.Falling:
@@ -106,17 +106,34 @@ public class RisingMonster : MonoBehaviour
     public void PlayAnimation(string animationName)
     {
         if (animator != null && !string.IsNullOrEmpty(animationName))
+        {
             animator.Play(animationName);
+
+            // Cuando termina hover o reject, restablecer posición exacta
+            if (animationName == idleAnimation ||
+                animationName == hoverAnimation ||
+                animationName == rejectAnimation)
+            {
+                // Esperar un pequeño frame para que el Animator actualice
+                StartCoroutine(ResetToTopPositionNextFrame());
+            }
+        }
     }
 
+    private System.Collections.IEnumerator ResetToTopPositionNextFrame()
+    {
+        yield return null; // espera 1 frame
+        transform.position = topPos;
+    }
 
     public void StartFalling()
     {
         currentState = State.Falling;
+
+        // Puedes poner animación de caer si la tienes
         if (animator != null && !string.IsNullOrEmpty(hoverAnimation))
             animator.Play(hoverAnimation);
     }
-
 
     void MoveTowards(Vector3 target)
     {
@@ -130,19 +147,15 @@ public class RisingMonster : MonoBehaviour
 
     public void InitializeRising(Transform assignedTarget)
     {
-        // Asignar la línea
         targetLine = assignedTarget;
 
-        // Inicializar la posición de inicio
         startPos = transform.position;
         startPos.y = startY;
         transform.position = startPos;
 
-        // Calcular la posición objetivo
         if (targetLine != null)
             targetPos = new Vector3(startPos.x, targetLine.position.y, startPos.z);
         else
             targetPos = new Vector3(startPos.x, startY + 5f, startPos.z);
     }
-
 }

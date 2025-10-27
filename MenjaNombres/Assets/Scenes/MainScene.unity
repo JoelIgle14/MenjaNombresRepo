@@ -938,7 +938,7 @@ MonoBehaviour:
     minNumValue: 1
     maxNumValue: 5
     orderTimeMultiplier: 1
-    durationSeconds: 40
+    durationSeconds: 30
     basicClientWeight: 1
     sophisticatedWeight: 1
     sequentialWeight: 1
@@ -951,7 +951,7 @@ MonoBehaviour:
     minNumValue: 1
     maxNumValue: 10
     orderTimeMultiplier: 0.8
-    durationSeconds: 50
+    durationSeconds: 40
     basicClientWeight: 0.75
     sophisticatedWeight: 1
     sequentialWeight: 1.1
@@ -964,7 +964,7 @@ MonoBehaviour:
     minNumValue: 1
     maxNumValue: 15
     orderTimeMultiplier: 0.65
-    durationSeconds: 60
+    durationSeconds: 40
     basicClientWeight: 0.5
     sophisticatedWeight: 1.1
     sequentialWeight: 1.1
@@ -977,7 +977,7 @@ MonoBehaviour:
     minNumValue: 1
     maxNumValue: 15
     orderTimeMultiplier: 0.65
-    durationSeconds: 60
+    durationSeconds: Infinity
     basicClientWeight: 0.3
     sophisticatedWeight: 1.1
     sequentialWeight: 1.1
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   - name: Numbers
     prefab: {fileID: 568016950704934354, guid: 6be4139a80d4fc54089951ff0716ab8f, type: 3}
     effectType: 2
-  specialBoxInterval: 30
+  specialBoxInterval: 5
 --- !u!4 &153740807
 Transform:
   m_ObjectHideFlags: 0
@@ -14938,7 +14938,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 107
+  m_SortingOrder: 12
   m_Sprite: {fileID: -3216351064086693144, guid: feea9b96800777c43a3e616f243efe20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15212,8 +15212,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1867363681}
   - {fileID: 702277778}
+  - {fileID: 1867363681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703954540

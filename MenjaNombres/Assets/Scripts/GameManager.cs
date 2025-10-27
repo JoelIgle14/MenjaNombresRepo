@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
             gameTime += Time.deltaTime;  
 
         }
-        if (gameActive && gameTime >= nextBoxTime)
+        if (gameActive && gameTime >= nextBoxTime && currentDifficultyIndex >= 1)
         {
             SpawnSpecialBoxOnRandomBelt();
             nextBoxTime += specialBoxInterval;

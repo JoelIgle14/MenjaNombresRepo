@@ -1020,6 +1020,12 @@ MonoBehaviour:
     baseWeight: 6
     operationType: 4
     currentWeight: 0
+  - name: Multiplier Customer
+    prefab: {fileID: 547625048845922028, guid: 4533043fca4d82a40a60e15b922a660c, type: 3}
+    points: 300
+    baseWeight: 6
+    operationType: 5
+    currentWeight: 0
   boxTypes:
   - name: Time
     prefab: {fileID: 8786182879969908764, guid: 0a4513fbf1200bc48bb392df5f097be6, type: 3}
@@ -1033,7 +1039,7 @@ MonoBehaviour:
   - name: Numbers
     prefab: {fileID: 568016950704934354, guid: 6be4139a80d4fc54089951ff0716ab8f, type: 3}
     effectType: 2
-  specialBoxInterval: 5
+  specialBoxInterval: 30
 --- !u!4 &153740807
 Transform:
   m_ObjectHideFlags: 0

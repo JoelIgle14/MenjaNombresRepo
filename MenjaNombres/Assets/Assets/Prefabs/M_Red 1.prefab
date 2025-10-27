@@ -102,6 +102,7 @@ MonoBehaviour:
   apperanceAnimationName: Red_Monster_Aparicion
   hoverAnimationName: Red_Monster_Hover
   rejectAnimationName: Red_Rechazo
+  happyAnimationName: Red_Monster_Happy
 --- !u!114 &2863003054018219888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +119,7 @@ MonoBehaviour:
   startY: -10
   speed: 2
   stayTime: 3
+  currentState: 0
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1429890698241775049
 MonoBehaviour:
@@ -1073,7 +1075,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &4126271977620683730
 MonoBehaviour:

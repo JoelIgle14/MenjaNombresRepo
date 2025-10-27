@@ -1020,12 +1020,6 @@ MonoBehaviour:
     baseWeight: 6
     operationType: 4
     currentWeight: 0
-  - name: Multiplier Customer
-    prefab: {fileID: 547625048845922028, guid: 4533043fca4d82a40a60e15b922a660c, type: 3}
-    points: 300
-    baseWeight: 4
-    operationType: 5
-    currentWeight: 0
   boxTypes:
   - name: Time
     prefab: {fileID: 8786182879969908764, guid: 0a4513fbf1200bc48bb392df5f097be6, type: 3}
@@ -1039,7 +1033,7 @@ MonoBehaviour:
   - name: Numbers
     prefab: {fileID: 568016950704934354, guid: 6be4139a80d4fc54089951ff0716ab8f, type: 3}
     effectType: 2
-  specialBoxInterval: 20
+  specialBoxInterval: 30
 --- !u!4 &153740807
 Transform:
   m_ObjectHideFlags: 0
@@ -2673,6 +2667,9 @@ MonoBehaviour:
   combineAnimationName: Operating
   cookAnimationName: OperatingPt2
   idleAnimationName: IdleMachine
+  objs:
+  - {fileID: 1433705382}
+  - {fileID: 462760777}
 --- !u!4 &719106240
 Transform:
   m_ObjectHideFlags: 0
@@ -3435,6 +3432,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897632645}
   m_CullTransparentMesh: 1
+--- !u!1 &935911300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6186584112317528768, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
+  m_PrefabInstance: {fileID: 1638913247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &964649348
 GameObject:
   m_ObjectHideFlags: 0
@@ -14612,8 +14614,8 @@ Transform:
   m_GameObject: {fileID: 1433705382}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.0823, z: 0}
+  m_LocalScale: {x: 1, y: 0.8355, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 172694587}
@@ -15130,7 +15132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060283925992495625, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.890428
       objectReference: {fileID: 0}
     - target: {fileID: 6060283925992495625, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalScale.z
@@ -15138,7 +15140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060283925992495625, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: -0.0548
       objectReference: {fileID: 0}
     - target: {fileID: 6556406052627197909, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
       propertyPath: m_Sprite
@@ -16046,6 +16048,9 @@ MonoBehaviour:
   combineAnimationName: Operaitng
   cookAnimationName: OperatingPt2
   idleAnimationName: IdleMachine
+  objs:
+  - {fileID: 935911300}
+  - {fileID: 872948504}
 --- !u!4 &1997966655
 Transform:
   m_ObjectHideFlags: 0

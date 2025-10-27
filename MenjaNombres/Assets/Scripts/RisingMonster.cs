@@ -13,8 +13,8 @@ public class RisingMonster : MonoBehaviour
 
     private float timer = 0f;
 
-    private enum State { Rising, Waiting, Falling, Idle }
-    private State currentState = State.Rising;
+    public enum State { Rising, Waiting, Falling, Idle }
+    public State currentState = State.Rising;
 
     private Vector3 startPos;
     public Vector3 targetPos;

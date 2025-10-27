@@ -384,8 +384,10 @@ bool CheckIntellectualOrder(int value)
 
     void OnMouseEnter()
     {
-        if (risingMonster != null)
+        if (risingMonster != null && risingMonster.currentState != RisingMonster.State.Rising)
+        {
             risingMonster.PlayAnimation(hoverAnimationName);
+        }
     }
 
     void OnMouseExit()

@@ -15,6 +15,8 @@ public class Adder : MonoBehaviour
     [SerializeField] private string cookAnimationName;    // se escribe desde el inspector
     [SerializeField] private string idleAnimationName = "Idle"; // volver al idle opcional
 
+    public GameObject[] objs;
+
     private bool resultSpawned = false;
     PlAud aud;
     private void Start()
@@ -66,6 +68,11 @@ public class Adder : MonoBehaviour
                 StartCoroutine(LoopCookAnimationUntilResult());
             }
         }
+
+        foreach(GameObject go in objs)
+        {
+            go.SetActive(false);
+        }
         aud.PlayAud();
         belt.PlaySmokeParticles();
         // Esperar un poco y luego mostrar el resultado en la cinta
@@ -78,6 +85,10 @@ public class Adder : MonoBehaviour
         if (!string.IsNullOrEmpty(idleAnimationName))
             animator.Play(idleAnimationName);
 
+        foreach (GameObject go in objs)
+        {
+            go.SetActive(true);
+        }
         Debug.Log($"Adder queued result {result} after cooking animation");
     }
 

@@ -229,6 +229,8 @@ public class GameManager : MonoBehaviour
         foreach (ConveyorBelt belt in belts)
         {
             belt.moveSpeed *= level.conveyorSpeedMultiplier;
+            //belt.GetComponent<SpriteRenderer>().material.GetFloat("");
+            belt.GetComponent<SpriteRenderer>().material.SetFloat("_Speed", belt.moveSpeed * ((!belt.moveRight) ?  0.1f : -0.1f));
         }
     }
 

@@ -60,7 +60,7 @@ public class SpecialBox : MonoBehaviour
             if (hit.TryGetComponent(out NumberDropArea numberDrop))
             {
                 // Si no tiene número absorbido, no hace nada
-                if (value != -1)
+                if (value != -1 && !numberDrop.IsAdder)
                 {
                     numberDrop.OnNumberDropBox(this, hit.transform);
                     GameManager.Instance.ActivateBoxEffect(effectType);
@@ -74,7 +74,7 @@ public class SpecialBox : MonoBehaviour
         }
 
         // Si no colisiona con nada, vuelve a su posición original
-        transform.position = startDragPosition;
+        transform.position = transform.parent.position;
     }
 
     void AbsorbNumber(DragDropNumbers number)

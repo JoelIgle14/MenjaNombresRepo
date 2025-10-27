@@ -115,21 +115,6 @@ public class Monster : MonoBehaviour
         }
     }
 
-    void ParseSequentialOrder(string op)
-    {
-        // Parse "1-2-3" format
-        string[] parts = op.Split('-');
-        sequentialValues.Clear();
-
-        foreach (string part in parts)
-        {
-            if (int.TryParse(part, out int value))
-            {
-                sequentialValues.Add(value);
-            }
-        }
-    }
-
     private void ShowOrderUI()
     {
         // Crear el globo de texto

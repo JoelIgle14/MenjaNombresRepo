@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using UnityEngine;
+using TMPro;
 using Random = UnityEngine.Random;
 using Debug = UnityEngine.Debug;
 
@@ -126,7 +127,7 @@ public class ConveyorBelt : MonoBehaviour
             Destroy(numero.gameObject);
         GameObject num = Instantiate(numberPrefab, holder.position, Quaternion.identity, holder);
         DragDropNumbers drag = num.GetComponent<DragDropNumbers>();
-        num.GetComponent<SpriteRenderer>().color = Color.green * Color.gray;
+        num.GetComponentInChildren<TMP_Text>().color = Color.green * Color.gray;
         if (drag != null)
         {
             drag.value = value;

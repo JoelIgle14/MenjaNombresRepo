@@ -395,16 +395,21 @@ bool CheckIntellectualOrder(int value)
 
     void OnMouseEnter()
     {
-        if (risingMonster != null && risingMonster.currentState != RisingMonster.State.Rising)
+        // Solo permitir hover si está esperando arriba (pedido activo)
+        if (risingMonster != null && risingMonster.currentState == RisingMonster.State.Waiting && !orderCompleted)
         {
             risingMonster.PlayAnimation(hoverAnimationName);
         }
     }
 
+
     void OnMouseExit()
     {
-        if (risingMonster != null)
+        // Solo permitir volver al idle si está arriba esperando
+        if (risingMonster != null && risingMonster.currentState == RisingMonster.State.Waiting && !orderCompleted)
+        {
             risingMonster.PlayAnimation(idleAnimationName);
+        }
     }
 
 

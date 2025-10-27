@@ -33,20 +33,6 @@ public class RisingMonster : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-
-        startPos = transform.position;
-        startPos.y = startY;
-        transform.position = startPos;
-
-        if (targetLine != null)
-        {
-            targetPos = new Vector3(startPos.x, targetLine.position.y, startPos.z);
-        }
-        else
-        {
-            Debug.LogWarning("No se asignó ninguna 'targetLine'. Usa un objeto vacío como referencia en el Inspector.");
-            targetPos = new Vector3(startPos.x, startY + 5f, startPos.z);
-        }
     }
 
     void Update()

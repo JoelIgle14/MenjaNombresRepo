@@ -312,6 +312,7 @@ MonoBehaviour:
   startY: -10
   speed: 2
   stayTime: 3
+  currentState: 0
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8187004506989859285
 MonoBehaviour:
@@ -343,6 +344,7 @@ MonoBehaviour:
   apperanceAnimationName: Square_Appearance
   hoverAnimationName: Square_Hover
   rejectAnimationName: Square_Rechazar
+  happyAnimationName: Square_Happy
 --- !u!114 &4308221908738790576
 MonoBehaviour:
   m_ObjectHideFlags: 0

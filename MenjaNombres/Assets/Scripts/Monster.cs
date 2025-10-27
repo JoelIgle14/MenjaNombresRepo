@@ -40,6 +40,8 @@ public class Monster : MonoBehaviour
     public string apperanceAnimationName;
     public string hoverAnimationName;
     public string rejectAnimationName;
+    public string happyAnimationName;
+
 
     private GameObject speechBubbleInstance;
     private GameObject DropInstance;
@@ -307,9 +309,6 @@ bool CheckIntellectualOrder(int value)
         if(DropInstance != null)
             Destroy(DropInstance);
 
-        // Destroy after animation
-        Destroy(gameObject, 0.5f);
-        if(Ui != null)Destroy(Ui);
     }
 
     void OnWrongNumber()
@@ -352,8 +351,20 @@ bool CheckIntellectualOrder(int value)
     void PlaySuccessAnimation()
     {
         Debug.Log($"{gameObject.name} - Order completed! Happy animation");
-        // Add your success animation/particles here
+
+        if (risingMonster != null && !string.IsNullOrEmpty(happyAnimationName))
+        {
+            risingMonster.PlayHappyAndDescend(happyAnimationName);
+        }
+
+        if (DropInstance != null)
+            Destroy(DropInstance);
+
+        if (Ui != null)
+            Destroy(Ui);
     }
+
+
 
     void PlayFailAnimation()
     {
@@ -418,4 +429,16 @@ bool CheckIntellectualOrder(int value)
             dropArea.OnNumberDropped -= OnNumberReceived;
         }
     }
+
+    private System.Collections.IEnumerator ReturnToSpawnAndDisappear()
+    {
+        // Esperar un momento para que se vea la animación feliz
+        yield return new WaitForSeconds(1f);
+
+        if (risingMonster != null)
+        {
+            risingMonster.StartFalling();
+        }
+    }
+
 }

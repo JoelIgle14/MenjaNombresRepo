@@ -469,6 +469,7 @@ MonoBehaviour:
   apperanceAnimationName: Triangle_Appearance
   hoverAnimationName: Triangle_Hover
   rejectAnimationName: Triangle_Rechazar
+  happyAnimationName: Triangle_Happy
 --- !u!114 &-2348276843626303883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +486,7 @@ MonoBehaviour:
   startY: -10
   speed: 2
   stayTime: 3
+  currentState: 0
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &-8391562962021632149
 MonoBehaviour:

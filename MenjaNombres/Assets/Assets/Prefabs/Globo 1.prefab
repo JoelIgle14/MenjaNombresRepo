@@ -113,6 +113,7 @@ MonoBehaviour:
   startY: -10
   speed: 2
   stayTime: 3
+  currentState: 0
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &-9184782043733878184
 MonoBehaviour:
@@ -144,6 +145,7 @@ MonoBehaviour:
   apperanceAnimationName: Ojo_Aparece
   hoverAnimationName: Ojo_Hover
   rejectAnimationName: Ojo_Rechazar
+  happyAnimationName: Ojo_Happy
 --- !u!114 &-2075506205543302915
 MonoBehaviour:
   m_ObjectHideFlags: 0

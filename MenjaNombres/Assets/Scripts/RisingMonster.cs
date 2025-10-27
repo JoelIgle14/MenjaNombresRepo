@@ -78,9 +78,11 @@ public class RisingMonster : MonoBehaviour
                 if (HasReached(startPos))
                 {
                     currentState = State.Idle;
-                    Destroy(gameObject);
+                    // Esperamos un frame antes de destruir para que la animación termine
+                    StartCoroutine(DestroyAfterReachBottom());
                 }
                 break;
+
 
             case State.Idle:
                 break;
@@ -105,20 +107,24 @@ public class RisingMonster : MonoBehaviour
 
     public void PlayAnimation(string animationName)
     {
-        if (animator != null && !string.IsNullOrEmpty(animationName))
-        {
-            animator.Play(animationName);
+        if (animator == null || string.IsNullOrEmpty(animationName))
+            return;
 
-            // Cuando termina hover o reject, restablecer posición exacta
-            if (animationName == idleAnimation ||
-                animationName == hoverAnimation ||
-                animationName == rejectAnimation)
-            {
-                // Esperar un pequeño frame para que el Animator actualice
-                StartCoroutine(ResetToTopPositionNextFrame());
-            }
+        //  No permitir hover si no está esperando arriba
+        if (animationName == hoverAnimation && currentState != State.Waiting)
+            return;
+
+        animator.Play(animationName);
+
+        //  Mantener la corrección de posición
+        if (animationName == idleAnimation ||
+            animationName == hoverAnimation ||
+            animationName == rejectAnimation)
+        {
+            StartCoroutine(ResetToTopPositionNextFrame());
         }
     }
+
 
     private System.Collections.IEnumerator ResetToTopPositionNextFrame()
     {
@@ -158,4 +164,19 @@ public class RisingMonster : MonoBehaviour
         else
             targetPos = new Vector3(startPos.x, startY + 5f, startPos.z);
     }
+
+    public void PlayHappyAndDescend(string happyAnimation)
+    {
+        if (animator != null && !string.IsNullOrEmpty(happyAnimation))
+            animator.Play(happyAnimation);
+
+        currentState = State.Falling;
+    }
+
+    private System.Collections.IEnumerator DestroyAfterReachBottom()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
+    }
+
 }

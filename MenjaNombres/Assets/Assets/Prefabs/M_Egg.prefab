@@ -1097,8 +1097,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6767372086190286571}
   - component: {fileID: 5168701622471952607}
-  - component: {fileID: 2913097021499396113}
   - component: {fileID: 8895807333238421671}
+  - component: {fileID: 2913097021499396113}
   - component: {fileID: 8709276874239005870}
   - component: {fileID: -1268478120990959208}
   - component: {fileID: 1902008139874825460}
@@ -1157,23 +1157,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2913097021499396113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7934938036700378104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3e170c2ce80704b8852ca93d4857c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLine: {fileID: 0}
-  startY: -10
-  speed: 2
-  stayTime: 3
-  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8895807333238421671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,6 +1187,25 @@ MonoBehaviour:
   apperanceAnimationName: Egg_Appearance
   hoverAnimationName: Egg_Hover
   rejectAnimationName: Egg_Rechazar
+  happyAnimationName: Egg_Happy
+--- !u!114 &2913097021499396113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934938036700378104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3e170c2ce80704b8852ca93d4857c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLine: {fileID: 0}
+  startY: -10
+  speed: 2
+  stayTime: 3
+  currentState: 0
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8709276874239005870
 MonoBehaviour:
   m_ObjectHideFlags: 0

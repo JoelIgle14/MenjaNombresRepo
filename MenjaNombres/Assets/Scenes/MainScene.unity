@@ -1027,7 +1027,7 @@ MonoBehaviour:
   - name: Basic Customer
     prefab: {fileID: 7934938036700378104, guid: a9f8d8f75df7366449957d5286917bcb, type: 3}
     points: 200
-    baseWeight: 10
+    baseWeight: 10000
     operationType: 0
     currentWeight: 0
   - name: Picky Customer

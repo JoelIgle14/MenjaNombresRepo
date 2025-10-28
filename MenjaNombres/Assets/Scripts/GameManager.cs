@@ -42,9 +42,12 @@ public class GameManager : MonoBehaviour
     private Coroutine blueRoutine;
     public CameraEffects effects;
 
+    [Header("Tutorial")]
+    public bool isTutorialMode = false;
+    private bool tutorialComplete = false;
 
-    public float gameTime = 0f;  // Tiempo de juego en segundos
-    public int completedOrders = 0;  // Pedidos completados
+    public float gameTime = 0f;
+    public int completedOrders = 0;
 
     PlAud aud;
 
@@ -92,7 +95,6 @@ public class GameManager : MonoBehaviour
         public float multiplierWeight = 0.1f;
     }
 
-
     [Header("Monster Types")]
     public List<MonsterType> monsterTypes = new List<MonsterType>();
 
@@ -114,9 +116,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Box Configuration")]
     public List<BoxType> boxTypes = new List<BoxType>();
-    public float specialBoxInterval = 20f; // Cada 20 segundos aparece una caja
+    public float specialBoxInterval = 20f;
     private float nextBoxTime = 0f;
-
 
     void Awake()
     {
@@ -128,10 +129,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
-        // Asegurarse de que el tiempo corre normalmente, y no en pausa al iniciar
-        Time.timeScale = 1f;
-
         aud = GetComponent<PlAud>();
 
         if (monsterTypes.Count == 0)
@@ -146,35 +143,131 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        bool enableMultiplier = PlayerPrefs.GetInt("EnableMultiplierCustomer", 1) == 1;
-        if (!enableMultiplier)
-        {
-            monsterTypes.RemoveAll(m => m.operationType == OperationType.MultiplierCustomer);
-            Debug.Log("Multiplier Customer desactivado por el jugador desde el menú.");
-        }
+        tutorialComplete = true;
+        if(!isTutorialMode) StartCoroutine(SpawnWaveLoop());
+        StartCoroutine(DifficultyProgression());
 
         ApplyDifficulty(0);
-        StartCoroutine(SpawnWaveLoop());
-        StartCoroutine(DifficultyProgression());
+
         nextBoxTime = specialBoxInterval;
     }
 
-
     void Update()
     {
-        if (gameActive)
+        if (gameActive && tutorialComplete)
         {
-            gameTime += Time.deltaTime;  
-
+            gameTime += Time.deltaTime;
         }
-        if (gameActive && gameTime >= nextBoxTime && currentDifficultyIndex >= 1)
+
+        if (gameActive && tutorialComplete && gameTime >= nextBoxTime)
         {
             SpawnSpecialBoxOnRandomBelt();
             nextBoxTime += specialBoxInterval;
         }
-
     }
 
+    // Called by TutorialManager when tutorial is done
+    public void OnTutorialComplete()
+    {
+        Debug.Log("[GameManager] Tutorial completed, starting normal game");
+        tutorialComplete = true;
+        isTutorialMode = false;
+
+        // Start normal game systems
+        StartCoroutine(SpawnWaveLoop());
+        StartCoroutine(DifficultyProgression());
+    }
+
+    // Special spawn loop for tutorial - spawns monsters based on tutorial phase
+    IEnumerator TutorialSpawnLoop()
+    {
+        while (isTutorialMode && !tutorialComplete)
+        {
+            if (TutorialManager.Instance == null)
+            {
+                yield return null;
+                continue;
+            }
+
+            TutorialManager.PhaseType currentPhase = TutorialManager.Instance.GetCurrentPhaseType();
+
+            // Only spawn during specific tutorial phases
+            if (currentPhase == TutorialManager.PhaseType.DragDropBasic)
+            {
+                // Spawn one basic customer
+                if (FindObjectsOfType<Monster>().Length == 0)
+                {
+                    MonsterType basicType = monsterTypes.Find(m => m.operationType == OperationType.BasicClient);
+                    if (basicType != null)
+                    {
+                        SpawnTutorialMonster(basicType, spawnPoints[0]);
+                    }
+                }
+            }
+            else if (currentPhase == TutorialManager.PhaseType.UseAdder)
+            {
+                // Spawn a customer that requires addition
+                if (FindObjectsOfType<Monster>().Length == 0)
+                {
+                    MonsterType sophisticatedType = monsterTypes.Find(m => m.operationType == OperationType.SophisticatedCustomer);
+                    if (sophisticatedType != null)
+                    {
+                        SpawnTutorialMonster(sophisticatedType, spawnPoints[0]);
+                    }
+                }
+            }
+            else if (currentPhase == TutorialManager.PhaseType.UseSpecialBox)
+            {
+                // Spawn special box if not present
+                ConveyorBelt[] belts = FindObjectsOfType<ConveyorBelt>();
+                bool hasSpecialBox = FindObjectOfType<SpecialBox>() != null;
+
+                if (!hasSpecialBox && belts.Length > 0 && boxTypes.Count > 0)
+                {
+                    ConveyorBelt randomBelt = belts[Random.Range(0, belts.Length)];
+                    BoxType chosenBox = boxTypes[Random.Range(0, boxTypes.Count)];
+                    randomBelt.QueueBoxSpawn(chosenBox.prefab, chosenBox.effectType);
+                }
+
+                // Also spawn a basic customer
+                if (FindObjectsOfType<Monster>().Length == 0)
+                {
+                    MonsterType basicType = monsterTypes.Find(m => m.operationType == OperationType.BasicClient);
+                    if (basicType != null)
+                    {
+                        SpawnTutorialMonster(basicType, spawnPoints[0]);
+                    }
+                }
+            }
+
+            yield return new WaitForSeconds(2f);
+        }
+    }
+
+    void SpawnTutorialMonster(MonsterType type, Transform spawn)
+    {
+        GameObject monster = Instantiate(type.prefab, spawn.position, Quaternion.identity);
+
+        var risingScript = monster.GetComponent<RisingMonster>();
+        if (risingScript != null)
+        {
+            risingScript.targetLine = targetLine;
+            risingScript.speed = monsterSpeed * 0.5f; // Slower for tutorial
+            risingScript.stayTime = monsterStayTime * 3f; // Much longer time
+            risingScript.startY = monsterStartY;
+            risingScript.InitializeRising(targetLine);
+        }
+
+        var monsterScript = monster.GetComponent<Monster>();
+        if (monsterScript != null)
+        {
+            int result;
+            string operation = GenerateValidOperation(type.operationType, out result);
+            monsterScript.Initialize(operation, result, type.points, type.operationType);
+        }
+
+        Debug.Log($"[Tutorial] Spawned: {type.name}");
+    }
 
     IEnumerator DifficultyProgression()
     {
@@ -182,7 +275,6 @@ public class GameManager : MonoBehaviour
         {
             DifficultyLevel current = difficultyLevels[currentDifficultyIndex];
 
-            // Wait for difficulty duration (unless it's the final difficulty)
             if (currentDifficultyIndex < difficultyLevels.Length - 1)
             {
                 yield return new WaitForSeconds(current.durationSeconds);
@@ -192,7 +284,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                // Final difficulty - stay here until game over
                 yield break;
             }
         }
@@ -205,7 +296,6 @@ public class GameManager : MonoBehaviour
         DifficultyLevel level = difficultyLevels[index];
         maxMonsters = level.clientNum;
 
-        // Update monster weights based on difficulty
         foreach (MonsterType monster in monsterTypes)
         {
             float weightMultiplier = 1f;
@@ -235,19 +325,17 @@ public class GameManager : MonoBehaviour
             monster.currentWeight = monster.baseWeight * weightMultiplier;
         }
 
-        // Notify conveyor belts about speed change
         ConveyorBelt[] belts = FindObjectsOfType<ConveyorBelt>();
         foreach (ConveyorBelt belt in belts)
         {
             belt.moveSpeed *= level.conveyorSpeedMultiplier;
-            //belt.GetComponent<SpriteRenderer>().material.GetFloat("");
-            belt.GetComponent<SpriteRenderer>().material.SetFloat("_Speed", belt.moveSpeed * ((!belt.moveRight) ?  0.1f : -0.1f));
+            belt.GetComponent<SpriteRenderer>().material.SetFloat("_Speed", belt.moveSpeed * ((!belt.moveRight) ? 0.1f : -0.1f));
         }
     }
 
     IEnumerator SpawnWaveLoop()
     {
-        while (gameActive)
+        while (gameActive && tutorialComplete)
         {
             List<GameObject> currentWave = new List<GameObject>();
             List<MonsterType> availableTypes = new List<MonsterType>(monsterTypes);
@@ -265,7 +353,6 @@ public class GameManager : MonoBehaviour
 
                 GameObject monster = Instantiate(chosenType.prefab, spawn.position, Quaternion.identity);
 
-                // Configure movement
                 var risingScript = monster.GetComponent<RisingMonster>();
                 if (risingScript != null)
                 {
@@ -273,12 +360,9 @@ public class GameManager : MonoBehaviour
                     risingScript.speed = monsterSpeed;
                     risingScript.stayTime = monsterStayTime * GetCurrentDifficulty().orderTimeMultiplier;
                     risingScript.startY = monsterStartY;
-
                     risingScript.InitializeRising(targetLine);
-
                 }
 
-                // Configure monster data
                 var monsterScript = monster.GetComponent<Monster>();
                 if (monsterScript != null)
                 {
@@ -288,11 +372,9 @@ public class GameManager : MonoBehaviour
                 }
 
                 Debug.Log($"Spawned: {chosenType.name} ({chosenType.points} pts)");
-
                 currentWave.Add(monster);
             }
 
-            // Wait for all monsters in wave to be destroyed
             while (currentWave.Exists(m => m != null))
                 yield return null;
 
@@ -362,7 +444,6 @@ public class GameManager : MonoBehaviour
                     int a = Random.Range(1, max / 2);
                     int b = Random.Range(1, max / 2);
 
-                    // Evitar resultados negativos
                     if (b > a)
                     {
                         int temp = a;
@@ -386,7 +467,7 @@ public class GameManager : MonoBehaviour
                 result = Random.Range(min, max + 1);
                 while ((result % 2 == 0) != even)
                     result = Random.Range(min, max + 1);
-                return even ? "Solament vull nombres parells" : "Solament vull nombres imparells";
+                return even ? "Per menjar només vull nombres parells" : "Només vull nombres imparells";
 
             case OperationType.IntellectualCustomer:
                 int rangeMin = Random.Range(min, max - 2);
@@ -401,17 +482,16 @@ public class GameManager : MonoBehaviour
                     int a = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     int b = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     result = a * b;
-                    return $"Porta’m una ració de {a} multiplicat {b}";
+                    return $"\"Porta'm una ració de {a} multiplicat {b}\"{a} × {b} = ?";
                 }
                 else
                 {
                     int divisor = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     int quotient = Random.Range(2, Mathf.Clamp(max / divisor, 3, max));
-                    int dividend = divisor * quotient; // número que se mostrará
-                    result = quotient; // el resultado correcto de la operación
-                    return $"Porta’m una ració de {dividend} dividit {divisor}";
+                    int dividend = divisor * quotient;
+                    result = quotient;
+                    return $"\"Porta'm una ració de {dividend} dividit {divisor}, \"{dividend} / {divisor} = ?";
                 }
-
 
             default:
                 result = Random.Range(min, max + 1);
@@ -427,8 +507,14 @@ public class GameManager : MonoBehaviour
     public void OnMonsterServed(int points)
     {
         score += points;
-        completedOrders++;  
+        completedOrders++;
         Score.text = "Puntuació: " + score;
+
+        // Notify tutorial if active
+        if (isTutorialMode && TutorialManager.Instance != null)
+        {
+            TutorialManager.Instance.OnNumberDroppedToMonster();
+        }
     }
 
     public void OnMonsterFailed()
@@ -438,7 +524,7 @@ public class GameManager : MonoBehaviour
             aud.PlayAud();
             lives--;
             effects.Damage();
-            // Solo destruir si el índice sigue válido
+
             if (lives >= 0 && lives < lifeObjects.Length && lifeObjects[lives] != null)
             {
                 Destroy(lifeObjects[lives]);
@@ -458,13 +544,8 @@ public class GameManager : MonoBehaviour
         ConveyorBelt[] belts = FindObjectsOfType<ConveyorBelt>();
         if (belts.Length == 0 || boxTypes.Count == 0) return;
 
-        // Elegir una cinta aleatoria
         ConveyorBelt randomBelt = belts[Random.Range(0, belts.Length)];
-
-        // Elegir un tipo de caja aleatorio
         BoxType chosenBox = boxTypes[Random.Range(0, boxTypes.Count)];
-
-        // Pedirle a la cinta que genere una caja especial
         randomBelt.QueueBoxSpawn(chosenBox.prefab, chosenBox.effectType);
 
         Debug.Log($"[GameManager] Spawning special box: {chosenBox.name} ({chosenBox.effectType})");
@@ -499,14 +580,12 @@ public class GameManager : MonoBehaviour
         blueEffectActive = true;
         Debug.Log(" Blue Effect activated! Pausing all monsters for 10s");
 
-        // Pausar todos los timers
         Monster[] monsters = FindObjectsOfType<Monster>();
         foreach (var m in monsters)
             m.PauseTimer(true);
 
         yield return new WaitForSeconds(10f);
 
-        // Reanudar timers
         foreach (var m in monsters)
             m.PauseTimer(false);
 
@@ -543,7 +622,6 @@ public class GameManager : MonoBehaviour
         float originalSpeed = belt.moveSpeed;
         belt.moveSpeed *= 1.5f;
 
-        // Hacer que genere números adicionales temporalmente
         for (int i = 0; i < 4; i++)
         {
             belt.QueueNumberSpawn(UnityEngine.Random.Range(1, 9));
@@ -564,26 +642,113 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Este método se llama por Monster al sumar puntos
     public int ApplyScoreMultiplier(int basePoints)
     {
         return Mathf.RoundToInt(basePoints * yellowMultiplier);
     }
 
+    public void ForceBasicCustomerPhase()
+    {
+        // 1. Remove all monsters
+        RemoveAllMonsters();
 
+        // 2. Spawn basic monster requesting 1
+        MonsterType basicType = monsterTypes.Find(m => m.operationType == OperationType.BasicClient);
+        if (basicType != null && spawnPoints.Length > 0)
+        {
+            GameObject monster = Instantiate(basicType.prefab, spawnPoints[0].position, Quaternion.identity);
+            var monsterScript = monster.GetComponent<Monster>();
+            if (monsterScript != null)
+            {
+                int result = 1;
+                monsterScript.Initialize($"Vull menjar-me el nombre {result}", result, basicType.points, basicType.operationType);
+            }
+        }
+
+        // 3. Force all belts to have only 1s and 2s
+        foreach (var belt in FindObjectsOfType<ConveyorBelt>())
+        {
+            belt.isTutorialMode = true;
+            belt.SetTutorialNumbers(new int[] { 1, 2, 1, 2 });
+        }
+    }
+
+    public void ForceAdditionPhase()
+    {
+        RemoveAllMonsters();
+
+        MonsterType addType = monsterTypes.Find(m => m.operationType == OperationType.SophisticatedCustomer);
+        if (addType != null && spawnPoints.Length > 0)
+        {
+            GameObject monster = Instantiate(addType.prefab, spawnPoints[0].position, Quaternion.identity);
+            var monsterScript = monster.GetComponent<Monster>();
+            if (monsterScript != null)
+            {
+                int a = 2;
+                int b = 3;
+                int result = a + b;
+                monsterScript.Initialize($"Vull menjar-me\n {a} + {b} = ?", result, addType.points, addType.operationType);
+            }
+        }
+
+        foreach (var belt in FindObjectsOfType<ConveyorBelt>())
+        {
+            belt.ClearTutorialNumbers();
+            belt.isTutorialMode = true;
+            belt.SetTutorialNumbers(new int[] { 2, 3, 2, 3 });
+        }
+    }
+
+    public void ForceSpecialBoxPhase()
+    {
+        RemoveAllMonsters();
+
+        // 1. Force all belts to spawn only 4s, and one x2 box
+        foreach (var belt in FindObjectsOfType<ConveyorBelt>())
+        {
+            belt.ClearTutorialNumbers();
+                belt.isTutorialMode = true;
+                belt.SetTutorialNumbers(new int[] { 4, 4, 4, 4 });
+
+                // Only on first belt, spawn the box next time a slot loops!
+                if (belt == FindObjectsOfType<ConveyorBelt>()[0] && boxTypes.Count > 0)
+                {
+                    var x2Box = boxTypes.Find(b => b.effectType == BoxEffectType.YellowEffect);
+                    if (x2Box != null)
+                        belt.QueueBoxSpawn(x2Box.prefab, BoxEffectType.YellowEffect);
+                }
+        }
+
+        // 2. Force spawn customer for '4'
+        MonsterType basicType = monsterTypes.Find(m => m.operationType == OperationType.BasicClient);
+        if (basicType != null && spawnPoints.Length > 0)
+        {
+            GameObject monster = Instantiate(basicType.prefab, spawnPoints[0].position, Quaternion.identity);
+            var monsterScript = monster.GetComponent<Monster>();
+            if (monsterScript != null)
+            {
+                int result = 4;
+                monsterScript.Initialize($"Vull menjar-me el nombre {result}", result, basicType.points, basicType.operationType);
+            }
+        }
+    }
+
+    // Utility to clear monsters
+    void RemoveAllMonsters()
+    {
+        foreach (var m in FindObjectsOfType<Monster>())
+            Destroy(m.gameObject);
+    }
 
     void GameOver()
     {
         gameActive = false;
         Debug.Log($"Game Over! Final Score: {score}");
 
-        // Cambiar a la escena de resultados
         SceneManager.LoadScene("GameOverScene");
 
-        // Para pasar los datos a la nueva escena (usamos PlayerPrefs o un Singleton/ScriptableObject)
         PlayerPrefs.SetInt("FinalScore", score);
         PlayerPrefs.SetFloat("FinalGameTime", gameTime);
         PlayerPrefs.SetInt("FinalCompletedOrders", completedOrders);
     }
-
 }

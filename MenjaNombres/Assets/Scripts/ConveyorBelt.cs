@@ -1,8 +1,9 @@
-﻿using System.Diagnostics;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
-using Random = UnityEngine.Random;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class ConveyorBelt : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class ConveyorBelt : MonoBehaviour
     private GameObject pendingBoxPrefab;
     private GameManager.BoxEffectType pendingBoxEffect;
 
+    public bool isTutorialMode = false;
+    private Queue<int> queuedTutorialNumbers = new Queue<int>();
 
     void Start()
     {
@@ -65,8 +68,19 @@ public class ConveyorBelt : MonoBehaviour
                 holder.position = InitialPosition.position;
                 if (canSpawnNumber)
                 {
-                    // Check if Adder requested a specific number
-                    if (hasPendingBox)
+                    // Tutorial override
+                    if (isTutorialMode && queuedTutorialNumbers.Count > 0)
+                    {
+                        int value = queuedTutorialNumbers.Dequeue();
+                        SpawnSpecificNumber(holder, value);
+
+                        // Optionally, keep filling from last value if out
+                        if (queuedTutorialNumbers.Count == 0)
+                        {
+                            queuedTutorialNumbers.Enqueue(value);
+                        }
+                    }
+                    else if (hasPendingBox)
                     {
                         SpawnSpecialBox(holder, pendingBoxPrefab, pendingBoxEffect);
                         hasPendingBox = false;
@@ -80,7 +94,6 @@ public class ConveyorBelt : MonoBehaviour
                     {
                         SpawnNumber(holder);
                     }
-
                 }
             }
         }
@@ -127,7 +140,10 @@ public class ConveyorBelt : MonoBehaviour
             Destroy(numero.gameObject);
         GameObject num = Instantiate(numberPrefab, holder.position, Quaternion.identity, holder);
         DragDropNumbers drag = num.GetComponent<DragDropNumbers>();
-        num.GetComponentInChildren<TMP_Text>().color = Color.green * Color.gray;
+
+        if(!isTutorialMode)
+            num.GetComponentInChildren<TMP_Text>().color = Color.green * Color.gray;
+
         if (drag != null)
         {
             drag.value = value;
@@ -142,6 +158,19 @@ public class ConveyorBelt : MonoBehaviour
         if (r < 0.7f) return Random.Range(4, 7);
         return Random.Range(7, 10);
     }
+
+    public void SetTutorialNumbers(IEnumerable<int> nums)
+    {
+        queuedTutorialNumbers.Clear();
+        foreach (var n in nums)
+            queuedTutorialNumbers.Enqueue(n);
+    }
+
+    public void ClearTutorialNumbers()
+    {
+        queuedTutorialNumbers.Clear();
+    }
+
     public void QueueNumberSpawn(int value)
     {
         pendingNumber = value;

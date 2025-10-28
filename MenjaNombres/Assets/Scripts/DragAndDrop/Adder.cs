@@ -11,18 +11,18 @@ public class Adder : MonoBehaviour
 
     [Header("Animaciones")]
     [SerializeField] private Animator animator;
-    [SerializeField] private string combineAnimationName; // se escribe desde el inspector
-    [SerializeField] private string cookAnimationName;    // se escribe desde el inspector
-    [SerializeField] private string idleAnimationName = "Idle"; // volver al idle opcional
-
-    public GameObject[] objs;
+    [SerializeField] private string combineAnimationName;
+    [SerializeField] private string cookAnimationName;
+    [SerializeField] private string idleAnimationName = "Idle";
 
     private bool resultSpawned = false;
     PlAud aud;
+
     private void Start()
     {
         aud = GetComponent<PlAud>();
     }
+
     public void Add()
     {
         if (a1.CurrentNum == 0 || a2.CurrentNum == 0)
@@ -33,7 +33,13 @@ public class Adder : MonoBehaviour
 
         int result = add ? a1.CurrentNum + a2.CurrentNum : Mathf.Abs(a1.CurrentNum - a2.CurrentNum);
 
-        // limpiar entradas
+        // Notify tutorial system
+        if (TutorialManager.Instance != null && TutorialManager.Instance.IsTutorialActive())
+        {
+            TutorialManager.Instance.OnAdderUsed();
+        }
+
+        // Clean inputs
         Destroy(a1.num.gameObject);
         Destroy(a2.num.gameObject);
         a1.CurrentNum = 0;
@@ -46,49 +52,36 @@ public class Adder : MonoBehaviour
         StartCoroutine(PlayAnimationsThenSpawn(result));
     }
 
-
     private IEnumerator PlayAnimationsThenSpawn(int result)
     {
-
         if (animator != null)
         {
-            // Animación de combinar (una vez)
+            // Combine animation
             if (!string.IsNullOrEmpty(combineAnimationName))
             {
                 animator.Play(combineAnimationName);
                 yield return new WaitForSeconds(GetAnimationLength(combineAnimationName));
             }
 
-            //  Empieza la animación de cocinar en bucle
+            // Cooking animation loop
             if (!string.IsNullOrEmpty(cookAnimationName))
             {
                 animator.Play(cookAnimationName);
-
-                // Iniciamos una corrutina que se repetirá hasta que el número aparezca
                 StartCoroutine(LoopCookAnimationUntilResult());
             }
         }
 
-        foreach(GameObject go in objs)
-        {
-            go.SetActive(false);
-        }
         aud.PlayAud();
         belt.PlaySmokeParticles();
-        // Esperar un poco y luego mostrar el resultado en la cinta
+
         yield return new WaitForSeconds(1.1f);
         belt.QueueNumberSpawn(result);
         resultSpawned = true;
 
-        //  Esperar un poco más antes de volver a Idle
         yield return new WaitForSeconds(0.5f);
         if (!string.IsNullOrEmpty(idleAnimationName))
             animator.Play(idleAnimationName);
 
-        foreach (GameObject go in objs)
-        {
-            go.SetActive(true);
-        }
         Debug.Log($"Adder queued result {result} after cooking animation");
     }
 
@@ -96,7 +89,6 @@ public class Adder : MonoBehaviour
     {
         float cookLength = GetAnimationLength(cookAnimationName);
 
-        // se repite hasta que el número haya aparecido
         while (!resultSpawned)
         {
             animator.Play(cookAnimationName);

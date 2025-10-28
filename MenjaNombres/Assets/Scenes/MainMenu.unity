@@ -964,7 +964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONFIGURACIO
+  m_text: "CONFIGURACI\xD3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a758cdbcf89245441892e606c7c9213c, type: 2}
   m_sharedMaterial: {fileID: 4792902637129845318, guid: a758cdbcf89245441892e606c7c9213c, type: 2}

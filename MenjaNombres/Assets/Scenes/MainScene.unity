@@ -1027,7 +1027,7 @@ MonoBehaviour:
   - name: Basic Customer
     prefab: {fileID: 7934938036700378104, guid: a9f8d8f75df7366449957d5286917bcb, type: 3}
     points: 200
-    baseWeight: 10000
+    baseWeight: 10
     operationType: 0
     currentWeight: 0
   - name: Picky Customer
@@ -1092,9 +1092,9 @@ AudioSource:
   m_GameObject: {fileID: 153740805}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -3116270737815354464, guid: 776e88861af5fa349a71503d2e13f6b0, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3549907739767710357, guid: 776e88861af5fa349a71503d2e13f6b0, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7a3f000db8e5e8f42ab8116e5e667235, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7a3f000db8e5e8f42ab8116e5e667235, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

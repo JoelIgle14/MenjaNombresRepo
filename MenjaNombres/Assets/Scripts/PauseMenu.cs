@@ -66,6 +66,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        AudioListener.pause = true;  // Pausa todo el audio
+        
     }
 
     public void Resume()
@@ -73,7 +75,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         settingsPanel.SetActive(false);
         helpPanel.SetActive(false);
-
+        AudioListener.pause = false; // Reanuda todo
         Time.timeScale = 1f;
         isPaused = false;
     }

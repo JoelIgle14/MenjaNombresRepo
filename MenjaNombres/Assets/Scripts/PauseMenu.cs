@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -66,10 +67,10 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
-    public void QuitGame()
+    public void MainMenu()
     {
-        Debug.Log("Saliendo del juego...");
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
+
     }
 
     // ========== AJUSTES ==========

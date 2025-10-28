@@ -18,8 +18,20 @@ public class MainMenu : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
+    public Toggle multiplierToggle; 
+
+
     private void Start()
     {
+
+        // Cargar el valor guardado (por defecto true)
+        bool enabled = PlayerPrefs.GetInt("EnableMultiplierCustomer", 1) == 1;
+        multiplierToggle.isOn = enabled;
+
+        // Registrar evento cuando cambia
+        multiplierToggle.onValueChanged.AddListener(OnMultiplierToggleChanged);
+
+
         // Cargar los valores guardados (si existen)
         float master = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
         float music = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
@@ -93,5 +105,10 @@ public class MainMenu : MonoBehaviour
         audioMixer.SetFloat("Master", Mathf.Log10(master) * 20);
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(music) * 20);
         audioMixer.SetFloat("SFXVolume", Mathf.Log10(sfx) * 20);
+    }
+    void OnMultiplierToggleChanged(bool value)
+    {
+        PlayerPrefs.SetInt("EnableMultiplierCustomer", value ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }

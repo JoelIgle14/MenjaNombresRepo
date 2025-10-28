@@ -129,7 +129,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+        // Asegurarse de que el tiempo corre normalmente, y no en pausa al iniciar
+        Time.timeScale = 1f;
+
         aud = GetComponent<PlAud>();
+
         if (monsterTypes.Count == 0)
         {
             Debug.LogError("No monster types assigned in GameManager.");
@@ -142,12 +146,19 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        bool enableMultiplier = PlayerPrefs.GetInt("EnableMultiplierCustomer", 1) == 1;
+        if (!enableMultiplier)
+        {
+            monsterTypes.RemoveAll(m => m.operationType == OperationType.MultiplierCustomer);
+            Debug.Log("Multiplier Customer desactivado por el jugador desde el menú.");
+        }
+
         ApplyDifficulty(0);
         StartCoroutine(SpawnWaveLoop());
         StartCoroutine(DifficultyProgression());
-        nextBoxTime = specialBoxInterval; // primer spawn de caja a los 20 segundos
-
+        nextBoxTime = specialBoxInterval;
     }
+
 
     void Update()
     {

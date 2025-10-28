@@ -25,12 +25,17 @@ public class DragDropNumbers : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // Si ya está dentro de la máquina, no lo escalamos ni lo movemos
+        if (isInMachine)
+            return;
+
         scaleAnimator.PlayScale(0.3f, 0.2f);
         aud.PlayAud();
-        // Guardamos la posición al empezar a arrastrar
+
         startDragPosition = transform.position;
         transform.position = GetMousePositionInWorldSpace() + new Vector3(0, 0, -3);
     }
+
 
     private void OnMouseDrag()
     {

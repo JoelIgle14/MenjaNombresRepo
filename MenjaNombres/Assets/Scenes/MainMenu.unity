@@ -147,7 +147,7 @@ RectTransform:
   m_GameObject: {fileID: 3146295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0}
+  m_LocalScale: {x: 0.021, y: 0.02, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1302717625}
@@ -871,8 +871,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &242593959
@@ -1283,8 +1283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.98000336, y: 5.635}
-  m_SizeDelta: {x: -23.43, y: -21.27}
+  m_AnchoredPosition: {x: -0.73999786, y: 5.635}
+  m_SizeDelta: {x: -16.36, y: -21.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347237795
 MonoBehaviour:
@@ -1308,8 +1308,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "CONFIGURACI\xD3"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a758cdbcf89245441892e606c7c9213c, type: 2}
-  m_sharedMaterial: {fileID: 4792902637129845318, guid: a758cdbcf89245441892e606c7c9213c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1444,8 +1444,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Volum de la M\xDASICA"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 35f28b7c362318546b1dc24a2d4bf0a4, type: 2}
-  m_sharedMaterial: {fileID: 4141429920641553139, guid: 35f28b7c362318546b1dc24a2d4bf0a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2405,7 +2405,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Aquesta caixa fa que es completin totes les comandes instant\xE0neament"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45a0fdcf133b233409a6918a711f2ff6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_margin: {x: -269.35825, y: -18.647936, z: -277.64603, w: -22.79187}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &740238148
@@ -2617,7 +2617,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Aquesta caixa fa que els monstres donin el doble de punts durant 30 segons
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45a0fdcf133b233409a6918a711f2ff6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2683,7 +2683,7 @@ MonoBehaviour:
   m_margin: {x: -265.21426, y: -24.863918, z: -285.93405, w: -20.719893}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &817077308
@@ -2753,8 +2753,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Volum dels efectes especials
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 35f28b7c362318546b1dc24a2d4bf0a4, type: 2}
-  m_sharedMaterial: {fileID: 4141429920641553139, guid: 35f28b7c362318546b1dc24a2d4bf0a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2819,7 +2819,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &826381595
@@ -3422,8 +3422,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a758cdbcf89245441892e606c7c9213c, type: 2}
-  m_sharedMaterial: {fileID: 4792902637129845318, guid: a758cdbcf89245441892e606c7c9213c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3644,7 +3644,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Aquesta caixa para el temporitzador dels monstres durant 10 segons
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45a0fdcf133b233409a6918a711f2ff6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3710,7 +3710,7 @@ MonoBehaviour:
   m_margin: {x: -20.71988, y: -4.144001, z: 0, w: -12.4319}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1204565277
@@ -3855,8 +3855,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: JUGAR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6eb30b8fa5ee40a428c5bd5136539e39, type: 2}
-  m_sharedMaterial: {fileID: -4594202215459685371, guid: 6eb30b8fa5ee40a428c5bd5136539e39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4094,8 +4094,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: AJUDA
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6eb30b8fa5ee40a428c5bd5136539e39, type: 2}
-  m_sharedMaterial: {fileID: -4594202215459685371, guid: 6eb30b8fa5ee40a428c5bd5136539e39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4306,8 +4306,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Volum General
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 35f28b7c362318546b1dc24a2d4bf0a4, type: 2}
-  m_sharedMaterial: {fileID: 4141429920641553139, guid: 35f28b7c362318546b1dc24a2d4bf0a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4372,7 +4372,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1361293539
@@ -4486,7 +4486,7 @@ RectTransform:
   m_GameObject: {fileID: 1483564804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0}
+  m_LocalScale: {x: 0.021, y: 0.02, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1930037886}
@@ -4861,7 +4861,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Aquesta caixa fa que surtin m\xE9s sushis de la cinta"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45a0fdcf133b233409a6918a711f2ff6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4927,7 +4927,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -12.431959, z: -536.6445, w: -37.295757}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1681851847
@@ -5144,7 +5144,7 @@ RectTransform:
   m_GameObject: {fileID: 1797473706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0}
+  m_LocalScale: {x: 0.021, y: 0.02, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 347237794}
@@ -5415,8 +5415,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Activar/Desactivar Multiplicacions i Divisions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a758cdbcf89245441892e606c7c9213c, type: 2}
-  m_sharedMaterial: {fileID: 4792902637129845318, guid: a758cdbcf89245441892e606c7c9213c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5551,8 +5551,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SORTIR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6eb30b8fa5ee40a428c5bd5136539e39, type: 2}
-  m_sharedMaterial: {fileID: -4594202215459685371, guid: 6eb30b8fa5ee40a428c5bd5136539e39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
+  m_sharedMaterial: {fileID: -5435183034071947493, guid: 7986ef4d76e38594c8e8a461f7f82db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5759,7 +5759,7 @@ RectTransform:
   m_GameObject: {fileID: 2067789833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0}
+  m_LocalScale: {x: 0.021, y: 0.02, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1222239058}

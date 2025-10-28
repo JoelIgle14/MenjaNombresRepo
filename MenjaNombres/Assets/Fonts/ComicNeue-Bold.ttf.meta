@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b40222f2708d8ee48a1a0c8b65eb0272
+guid: a0292dd480d049948b1bdbdc7c28cd13
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Bangers
+  - Comic Neue
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

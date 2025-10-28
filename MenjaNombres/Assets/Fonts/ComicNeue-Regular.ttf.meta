@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e44e07fe329ad74887a9713d7430659
+guid: 7ee66dc234065c342934b85656379a39
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - KG Primary Penmanship
+  - Comic Neue
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

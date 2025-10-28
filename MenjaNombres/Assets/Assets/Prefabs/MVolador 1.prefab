@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 155849550020319501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.09144828}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 432913173720481060}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.93, y: -0.84900004}
+  m_AnchoredPosition: {x: -1.37, y: -0.96}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3364148833660283555
@@ -214,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 1284504088109774606}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.89, y: 3.27, z: -0.09144828}
+  m_LocalPosition: {x: 3.99, y: 3.27, z: -0.09144828}
   m_LocalScale: {x: 0.39789, y: 0.78134996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -326,7 +326,7 @@ MonoBehaviour:
   speechBubblePrefab: {fileID: 3129129227592769293, guid: c173eccc04dc5614facced21dcee8c98, type: 3}
   speechBubbleSpawnPoint: {fileID: 4396085102742711988}
   dropAreaSpawnPoint: {fileID: 3584388600059162365}
-  ResultPointOffset: 0
+  ResultPointOffset: 0.1
   dropAreaPrefab: {fileID: 2780974769838372084, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
   operation: 
   requiredResult: 0
@@ -488,7 +488,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.1813295, y: 2.1612964}
+  m_Offset: {x: 1.1813295, y: 2.4163563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -498,7 +498,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.7253175, y: 6.987191}
+  m_Size: {x: 5.7253175, y: 7.497311}
   m_EdgeRadius: 0
 --- !u!1 &1609710252642118393
 GameObject:
@@ -873,7 +873,7 @@ Transform:
   m_GameObject: {fileID: 2171024439290061710}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.22, y: 4.23, z: -0.09144828}
+  m_LocalPosition: {x: 4.44, y: 4.56, z: -0.09144828}
   m_LocalScale: {x: 0.39789, y: 0.78134996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

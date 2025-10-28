@@ -386,7 +386,7 @@ public class GameManager : MonoBehaviour
                 result = Random.Range(min, max + 1);
                 while ((result % 2 == 0) != even)
                     result = Random.Range(min, max + 1);
-                return even ? "Per menjar només vull nombres parells" : "Només vull nombres imparells";
+                return even ? "Solament vull nombres parells" : "Solament vull nombres imparells";
 
             case OperationType.IntellectualCustomer:
                 int rangeMin = Random.Range(min, max - 2);

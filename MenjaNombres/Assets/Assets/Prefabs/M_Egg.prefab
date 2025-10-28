@@ -28,15 +28,15 @@ RectTransform:
   m_GameObject: {fileID: 380334335152465644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1047454527275549188}
   m_Father: {fileID: 6767372086190286571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.97, y: -2.83}
+  m_AnchoredPosition: {x: -2.88, y: -3.79}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3940804935221891017
@@ -376,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 1447342542769212838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.41, y: -1.36, z: 0}
+  m_LocalPosition: {x: 4.54, y: -2.55, z: 0}
   m_LocalScale: {x: 1.3263, y: 2.6044998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1081,7 +1081,7 @@ Transform:
   m_GameObject: {fileID: 7624380070175355784}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.79, y: 4.77, z: 0}
+  m_LocalPosition: {x: 4, y: 4.5, z: 0}
   m_LocalScale: {x: 1.3263, y: 2.6044998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1172,13 +1172,13 @@ MonoBehaviour:
   speechBubblePrefab: {fileID: 3129129227592769293, guid: c173eccc04dc5614facced21dcee8c98, type: 3}
   speechBubbleSpawnPoint: {fileID: 2340396281033182857}
   dropAreaSpawnPoint: {fileID: 2597837022900722060}
-  ResultPointOffset: 0
+  ResultPointOffset: -0.4
   dropAreaPrefab: {fileID: 2780974769838372084, guid: 0bf4564175779a6458eba0c6c32ad40f, type: 3}
   operation: 
   requiredResult: 0
   pointValue: 0
   orderType: 0
-  orderTime: 20
+  orderTime: 35
   timerBar: {fileID: 4424356709449247684}
   timerSprite: {fileID: 7203297221248435277}
   timerStartColor: {r: 0, g: 1, b: 0, a: 1}

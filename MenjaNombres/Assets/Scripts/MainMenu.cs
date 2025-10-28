@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [Header("Panels")]
     public GameObject mainPanel;
     public GameObject settingsPanel;
+    public GameObject helpPanel;
 
 
     [Header("Audio Mixer")]
@@ -74,6 +75,15 @@ public class MainMenu : MonoBehaviour
         mainPanel.SetActive(true);
     }
 
+    public void OpenHelp()
+    {
+        helpPanel.SetActive(true);
+    }
+
+    public void CloseHelp()
+    {
+        helpPanel.SetActive(false);
+    }
 
     // ================= SLIDERS DE AUDIO =================
 

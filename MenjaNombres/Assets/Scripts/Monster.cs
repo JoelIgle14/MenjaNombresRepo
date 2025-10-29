@@ -127,7 +127,7 @@ public class Monster : MonoBehaviour
                 new Vector3(speechBubbleSpawnPoint.position.x, GetComponent<RisingMonster>().targetPos.y + speechBubbleSpawnPoint.position.y, 0),
                 Quaternion.identity
             );
-
+            speechBubbleInstance.transform.SetParent(this.transform, worldPositionStays: true);
             Ui = speechBubbleInstance;
 
             operationText = speechBubbleInstance.GetComponentInChildren<TMP_Text>();

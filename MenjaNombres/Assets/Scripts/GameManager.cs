@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Tutorial")]
     public bool isTutorialMode = false;
-    private bool tutorialComplete = false;
 
     public float gameTime = 0f;
     public int completedOrders = 0;
@@ -126,6 +125,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        gameActive = true;
     }
 
     void Start()
@@ -144,7 +145,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        tutorialComplete = true;
 
         // APLICA LA DIFICULTAD ANTES DE INICIAR LOS CICLOS
         ApplyDifficulty(0);
@@ -160,12 +160,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (gameActive && tutorialComplete)
+        if (gameActive)
         {
+            print(Time.timeScale);
             gameTime += Time.deltaTime;
         }
 
-        if (gameActive && tutorialComplete && gameTime >= nextBoxTime)
+        if (gameActive && gameTime >= nextBoxTime)
         {
             SpawnSpecialBoxOnRandomBelt();
             nextBoxTime += specialBoxInterval;
@@ -238,7 +239,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnWaveLoop()
     {
-        while (gameActive && tutorialComplete)
+        while (gameActive)
         {
             List<GameObject> currentWave = new List<GameObject>();
             List<MonsterType> availableTypes = new List<MonsterType>(monsterTypes);

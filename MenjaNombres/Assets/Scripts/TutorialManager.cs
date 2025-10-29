@@ -142,8 +142,6 @@ public class TutorialManager : MonoBehaviour
         tutorialActive = true;
         currentPhase = 0;
 
-        // Slow down the game
-        Time.timeScale = 0f;
 
         StartCoroutine(ShowPhase(currentPhase));
     }
@@ -350,8 +348,6 @@ public class TutorialManager : MonoBehaviour
         if (actionPanel != null) actionPanel.SetActive(false);
         if (highlightOverlay != null) highlightOverlay.SetActive(false);
 
-        // Restore normal game speed
-        Time.timeScale = 1f;
     }
 
     public void SkipTutorial()

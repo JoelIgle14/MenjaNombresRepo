@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
+        Resume();
         // Cargar los volúmenes guardados
         float master = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
         float music = PlayerPrefs.GetFloat("MusicVolume", 0.75f);

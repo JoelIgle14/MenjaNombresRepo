@@ -26,14 +26,10 @@ public class NumberDropArea : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-
-    }
-
     // Nota: renombrado 'transform' a 'dropPoint' para evitar shadowing
     public void OnNumberDrop(DragDropNumbers number, Transform dropPoint)
     {
+        if(currentNumberObject != null){ return ; }
         // Mover el número a la posición de drop
         number.transform.position = dropPoint.position;
 

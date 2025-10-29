@@ -3921,7 +3921,7 @@ MonoBehaviour:
   belt: {fileID: 702277775}
   gameManager: {fileID: 153740806}
   animator: {fileID: 1221323336}
-  combineAnimationName: Operating
+  combineAnimationName: 
   cookAnimationName: OperatingPt2
   idleAnimationName: IdleMachine
 --- !u!4 &719106240
@@ -19976,7 +19976,7 @@ MonoBehaviour:
   belt: {fileID: 1867363682}
   gameManager: {fileID: 153740806}
   animator: {fileID: 638957332}
-  combineAnimationName: Operating
+  combineAnimationName: 
   cookAnimationName: OperatingPt2
   idleAnimationName: IdleMachine
 --- !u!4 &1997966655

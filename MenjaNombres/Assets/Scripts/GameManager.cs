@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public float gameTime = 0f;
     public int completedOrders = 0;
 
+
     PlAud aud;
 
     public static GameManager Instance;
@@ -168,6 +169,10 @@ public class GameManager : MonoBehaviour
         {
             SpawnSpecialBoxOnRandomBelt();
             nextBoxTime += specialBoxInterval;
+        }
+        if(PlayerPrefs.GetInt("TutorialCompleted", 0) == 1)
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

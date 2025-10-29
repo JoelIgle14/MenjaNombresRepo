@@ -19,9 +19,10 @@ public class MainMenu : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
-    public Toggle multiplierToggle; 
+    public Toggle multiplierToggle;
 
-
+    [Header("Scene Management")]
+    public string tutorialSceneName = "TUTORIAL";
     private void Start()
     {
 
@@ -79,7 +80,17 @@ public class MainMenu : MonoBehaviour
     {
         helpPanel.SetActive(true);
     }
+    public void GoToTutorialFromUI()
+    {
+        Debug.Log("[GameManager] UI triggered tutorial mode");
 
+        // Mark tutorial as incomplete so it runs again
+        PlayerPrefs.SetInt("TutorialCompleted", 0);
+        PlayerPrefs.Save();
+
+        // Load tutorial scene
+        SceneManager.LoadScene(tutorialSceneName);
+    }
     public void CloseHelp()
     {
         helpPanel.SetActive(false);

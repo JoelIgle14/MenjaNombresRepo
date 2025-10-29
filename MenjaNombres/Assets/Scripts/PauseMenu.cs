@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [Header("Referencias de UI")]
     public GameObject pauseMenuUI;
     public GameObject settingsPanel;
+    public GameObject helpPanel;
 
     [Header("Audio")]
     public AudioMixer audioMixer;
@@ -32,6 +33,7 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenuUI.SetActive(false);
         settingsPanel.SetActive(false);
+        helpPanel.SetActive(false);
     }
 
     void Update()
@@ -44,6 +46,13 @@ public class PauseMenu : MonoBehaviour
                 CloseSettings();
                 return;
             }
+            if (helpPanel.activeSelf)
+            {
+                // Si estamos en help, volvemos al menú de pausa
+                CloseHelp();
+                return;
+            }
+
 
             if (isPaused)
                 Resume();
@@ -57,12 +66,16 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        AudioListener.pause = true;  // Pausa todo el audio
+        
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         settingsPanel.SetActive(false);
+        helpPanel.SetActive(false);
+        AudioListener.pause = false; // Reanuda todo
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -85,6 +98,21 @@ public class PauseMenu : MonoBehaviour
         settingsPanel.SetActive(false);
         pauseMenuUI.SetActive(true);
     }
+
+    public void OpenHelp()
+    {
+        pauseMenuUI.SetActive(false);
+
+        helpPanel.SetActive(true);
+    }
+
+    public void CloseHelp()
+    {
+        helpPanel.SetActive(false);
+        pauseMenuUI.SetActive(true);
+
+    }
+
 
     // ========== SLIDERS ==========
     public void OnMasterVolumeChanged(float value)

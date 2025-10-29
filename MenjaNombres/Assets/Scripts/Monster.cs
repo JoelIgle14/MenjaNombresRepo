@@ -368,11 +368,14 @@ bool CheckIntellectualOrder(int value)
 
     void PlayFailAnimation()
     {
-        Debug.Log($"{gameObject.name} - Wrong number! Angry animation");
-
+        Debug.Log($"{gameObject.name} - Wrong number! Playing reject animation");
         if (risingMonster != null && !string.IsNullOrEmpty(rejectAnimationName))
+        {
             risingMonster.PlayAnimation(rejectAnimationName);
+            Debug.Log("Reject animation triggered at frame: " + Time.frameCount);
+        }
     }
+
 
 
 

@@ -170,24 +170,7 @@ public class GameManager : MonoBehaviour
             SpawnSpecialBoxOnRandomBelt();
             nextBoxTime += specialBoxInterval;
         }
-        if(PlayerPrefs.GetInt("TutorialCompleted", 0) == 1)
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
     }
-
-    // Called by TutorialManager when tutorial is done
-    public void OnTutorialComplete()
-    {
-        Debug.Log("[GameManager] Tutorial completed, starting normal game");
-        tutorialComplete = true;
-        isTutorialMode = false;
-
-        // Start normal game systems
-        StartCoroutine(SpawnWaveLoop());
-        StartCoroutine(DifficultyProgression());
-    }
-
 
     IEnumerator DifficultyProgression()
     {

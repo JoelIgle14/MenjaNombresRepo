@@ -1,6 +1,7 @@
-using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
@@ -112,6 +113,13 @@ public class TutorialManager : MonoBehaviour
         }
     };
 
+    private void LateUpdate()
+    {
+        if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 1)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
     void Awake()
     {
         if (Instance == null)
@@ -344,9 +352,6 @@ public class TutorialManager : MonoBehaviour
 
         // Restore normal game speed
         Time.timeScale = 1f;
-
-        // Notify GameManager to start normal gameplay
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainGameScene");
     }
 
     public void SkipTutorial()

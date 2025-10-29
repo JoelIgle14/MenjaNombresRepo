@@ -52,7 +52,7 @@ public class DragDropNumbers : MonoBehaviour
         if (hitCollider != null)
         {
             // Si se suelta sobre una zona válida de números
-            if (hitCollider.TryGetComponent(out NumberDropArea numberDropArea))
+            if (hitCollider.TryGetComponent(out NumberDropArea numberDropArea) && !isInMachine)
             {
                 numberDropArea.OnNumberDrop(this, hitCollider.transform);
                 isInMachine = true;

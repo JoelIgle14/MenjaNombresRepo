@@ -144,13 +144,18 @@ public class GameManager : MonoBehaviour
         }
 
         tutorialComplete = true;
-        if(!isTutorialMode) StartCoroutine(SpawnWaveLoop());
-        StartCoroutine(DifficultyProgression());
 
+        // APLICA LA DIFICULTAD ANTES DE INICIAR LOS CICLOS
         ApplyDifficulty(0);
+
+        if (!isTutorialMode)
+            StartCoroutine(SpawnWaveLoop());
+
+        StartCoroutine(DifficultyProgression());
 
         nextBoxTime = specialBoxInterval;
     }
+
 
     void Update()
     {

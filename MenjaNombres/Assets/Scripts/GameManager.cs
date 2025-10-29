@@ -183,96 +183,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DifficultyProgression());
     }
 
-    // Special spawn loop for tutorial - spawns monsters based on tutorial phase
-    IEnumerator TutorialSpawnLoop()
-    {
-        while (isTutorialMode && !tutorialComplete)
-        {
-            if (TutorialManager.Instance == null)
-            {
-                yield return null;
-                continue;
-            }
-
-            TutorialManager.PhaseType currentPhase = TutorialManager.Instance.GetCurrentPhaseType();
-
-            // Only spawn during specific tutorial phases
-            if (currentPhase == TutorialManager.PhaseType.DragDropBasic)
-            {
-                // Spawn one basic customer
-                if (FindObjectsOfType<Monster>().Length == 0)
-                {
-                    MonsterType basicType = monsterTypes.Find(m => m.operationType == OperationType.BasicClient);
-                    if (basicType != null)
-                    {
-                        SpawnTutorialMonster(basicType, spawnPoints[0]);
-                    }
-                }
-            }
-            else if (currentPhase == TutorialManager.PhaseType.UseAdder)
-            {
-                // Spawn a customer that requires addition
-                if (FindObjectsOfType<Monster>().Length == 0)
-                {
-                    MonsterType sophisticatedType = monsterTypes.Find(m => m.operationType == OperationType.SophisticatedCustomer);
-                    if (sophisticatedType != null)
-                    {
-                        SpawnTutorialMonster(sophisticatedType, spawnPoints[0]);
-                    }
-                }
-            }
-            else if (currentPhase == TutorialManager.PhaseType.UseSpecialBox)
-            {
-                // Spawn special box if not present
-                ConveyorBelt[] belts = FindObjectsOfType<ConveyorBelt>();
-                bool hasSpecialBox = FindObjectOfType<SpecialBox>() != null;
-
-                if (!hasSpecialBox && belts.Length > 0 && boxTypes.Count > 0)
-                {
-                    ConveyorBelt randomBelt = belts[Random.Range(0, belts.Length)];
-                    BoxType chosenBox = boxTypes[Random.Range(0, boxTypes.Count)];
-                    randomBelt.QueueBoxSpawn(chosenBox.prefab, chosenBox.effectType);
-                }
-
-                // Also spawn a basic customer
-                if (FindObjectsOfType<Monster>().Length == 0)
-                {
-                    MonsterType basicType = monsterTypes.Find(m => m.operationType == OperationType.BasicClient);
-                    if (basicType != null)
-                    {
-                        SpawnTutorialMonster(basicType, spawnPoints[0]);
-                    }
-                }
-            }
-
-            yield return new WaitForSeconds(2f);
-        }
-    }
-
-    void SpawnTutorialMonster(MonsterType type, Transform spawn)
-    {
-        GameObject monster = Instantiate(type.prefab, spawn.position, Quaternion.identity);
-
-        var risingScript = monster.GetComponent<RisingMonster>();
-        if (risingScript != null)
-        {
-            risingScript.targetLine = targetLine;
-            risingScript.speed = monsterSpeed * 0.5f; // Slower for tutorial
-            risingScript.stayTime = monsterStayTime * 3f; // Much longer time
-            risingScript.startY = monsterStartY;
-            risingScript.InitializeRising(targetLine);
-        }
-
-        var monsterScript = monster.GetComponent<Monster>();
-        if (monsterScript != null)
-        {
-            int result;
-            string operation = GenerateValidOperation(type.operationType, out result);
-            monsterScript.Initialize(operation, result, type.points, type.operationType);
-        }
-
-        Debug.Log($"[Tutorial] Spawned: {type.name}");
-    }
 
     IEnumerator DifficultyProgression()
     {
@@ -603,6 +513,7 @@ public class GameManager : MonoBehaviour
         yellowEffectActive = true;
         yellowMultiplier = 2f;
         Debug.Log(" Yellow Effect activated! Double points for 30s");
+        if (isTutorialMode) FindAnyObjectByType<TutorialManager>().OnSpecialBoxUsed();
 
         yield return new WaitForSeconds(30f);
 
@@ -663,10 +574,20 @@ public class GameManager : MonoBehaviour
         {
             GameObject monster = Instantiate(basicType.prefab, spawnPoints[0].position, Quaternion.identity);
             var monsterScript = monster.GetComponent<Monster>();
+            var risingScript = monster.GetComponent<RisingMonster>();
+            if (risingScript != null)
+            {
+                risingScript.targetLine = targetLine;
+                risingScript.speed = monsterSpeed * 0.5f; // Slower for tutorial
+                risingScript.stayTime = monsterStayTime * 3f; // Much longer time
+                risingScript.startY = monsterStartY;
+                risingScript.InitializeRising(targetLine);
+            }
             if (monsterScript != null)
             {
                 int result = 1;
                 monsterScript.Initialize($"Vull menjar-me el nombre {result}", result, basicType.points, basicType.operationType);
+                monsterScript.orderTime = float.PositiveInfinity;
             }
         }
 
@@ -687,12 +608,22 @@ public class GameManager : MonoBehaviour
         {
             GameObject monster = Instantiate(addType.prefab, spawnPoints[0].position, Quaternion.identity);
             var monsterScript = monster.GetComponent<Monster>();
+            var risingScript = monster.GetComponent<RisingMonster>();
+            if (risingScript != null)
+            {
+                risingScript.targetLine = targetLine;
+                risingScript.speed = monsterSpeed * 0.5f; // Slower for tutorial
+                risingScript.stayTime = monsterStayTime * 3f; // Much longer time
+                risingScript.startY = monsterStartY;
+                risingScript.InitializeRising(targetLine);
+            }
             if (monsterScript != null)
             {
                 int a = 2;
                 int b = 3;
                 int result = a + b;
                 monsterScript.Initialize($"Vull menjar-me\n {a} + {b} = ?", result, addType.points, addType.operationType);
+                monsterScript.orderTime = float.PositiveInfinity;
             }
         }
 
@@ -704,6 +635,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator BoxSpawn(BoxType box)
+    {
+        foreach (var belt in FindObjectsOfType<ConveyorBelt>())
+        {
+            if (belt == FindObjectsOfType<ConveyorBelt>()[0] && boxTypes.Count > 0)
+            {
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+                yield return new WaitForSeconds(1.5f);
+                belt.QueueBoxSpawn(box.prefab, BoxEffectType.YellowEffect);
+            }
+        }
+    }
+
     public void ForceSpecialBoxPhase()
     {
         RemoveAllMonsters();
@@ -711,17 +673,23 @@ public class GameManager : MonoBehaviour
         // 1. Force all belts to spawn only 4s, and one x2 box
         foreach (var belt in FindObjectsOfType<ConveyorBelt>())
         {
-            belt.ClearTutorialNumbers();
+            // Only on first belt, spawn the box next time a slot loops!
+            if (belt == FindObjectsOfType<ConveyorBelt>()[0] && boxTypes.Count > 0)
+            {
+                belt.ClearTutorialNumbers();
+                var x2Box = boxTypes.Find(b => b.effectType == BoxEffectType.YellowEffect);
+                if (x2Box != null)
+                {
+                    StartCoroutine(BoxSpawn(x2Box));
+                }
+            }
+            else
+            {
+                belt.ClearTutorialNumbers();
                 belt.isTutorialMode = true;
                 belt.SetTutorialNumbers(new int[] { 4, 4, 4, 4 });
+            }
 
-                // Only on first belt, spawn the box next time a slot loops!
-                if (belt == FindObjectsOfType<ConveyorBelt>()[0] && boxTypes.Count > 0)
-                {
-                    var x2Box = boxTypes.Find(b => b.effectType == BoxEffectType.YellowEffect);
-                    if (x2Box != null)
-                        belt.QueueBoxSpawn(x2Box.prefab, BoxEffectType.YellowEffect);
-                }
         }
 
         // 2. Force spawn customer for '4'
@@ -730,16 +698,26 @@ public class GameManager : MonoBehaviour
         {
             GameObject monster = Instantiate(basicType.prefab, spawnPoints[0].position, Quaternion.identity);
             var monsterScript = monster.GetComponent<Monster>();
+            var risingScript = monster.GetComponent<RisingMonster>();
+            if (risingScript != null)
+            {
+                risingScript.targetLine = targetLine;
+                risingScript.speed = monsterSpeed * 0.5f; // Slower for tutorial
+                risingScript.stayTime = monsterStayTime * 3f; // Much longer time
+                risingScript.startY = monsterStartY;
+                risingScript.InitializeRising(targetLine);
+            }
             if (monsterScript != null)
             {
                 int result = 4;
                 monsterScript.Initialize($"Vull menjar-me el nombre {result}", result, basicType.points, basicType.operationType);
+                monsterScript.orderTime = float.PositiveInfinity;
             }
         }
     }
 
     // Utility to clear monsters
-    void RemoveAllMonsters()
+    public void RemoveAllMonsters()
     {
         foreach (var m in FindObjectsOfType<Monster>())
             Destroy(m.gameObject);

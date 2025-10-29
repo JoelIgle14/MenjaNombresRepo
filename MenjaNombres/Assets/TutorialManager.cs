@@ -296,15 +296,14 @@ public class TutorialManager : MonoBehaviour
     public void OnAdderUsed()
     {
         if (!tutorialActive) return;
-
         if (phases[currentPhase].type == PhaseType.UseAdder && !hasUsedAdder)
         {
+            GetComponent<GameManager>().RemoveAllMonsters();
             hasUsedAdder = true;
             phaseCompleted = true;
             Debug.Log("[Tutorial] Player used adder!");
         }
     }
-
     public void OnTrashCanUsed()
     {
         if (!tutorialActive) return;

@@ -385,7 +385,7 @@ public class GameManager : MonoBehaviour
                     int a = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     int b = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     result = a * b;
-                    return $"\"Porta'm una ració de {a} multiplicat {b}\"{a} × {b} = ?";
+                    return $"\"Porta'm una ració de {a} multiplicat {b}";
                 }
                 else
                 {
@@ -393,7 +393,7 @@ public class GameManager : MonoBehaviour
                     int quotient = Random.Range(2, Mathf.Clamp(max / divisor, 3, max));
                     int dividend = divisor * quotient;
                     result = quotient;
-                    return $"\"Porta'm una ració de {dividend} dividit {divisor}, \"{dividend} / {divisor} = ?";
+                    return $"Porta'm una ració de {dividend} dividit {divisor}";
                 }
 
             default:

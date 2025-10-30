@@ -2,7 +2,7 @@
 
 ##  Català
 
-En aquest joc has de **sumar, restar i alimentar als monstres famolencs** en un restaurant de sushi.
+En aquest joc has de **sumar, restar i alimentar als monstres famolencs** en un restaurant de sushi. Arrosega els nombres al plat del monstre per alimentar-lo, o a les maquines per operar.
 
 Els nombres surten per **2 cintes transportadores**:  
 - La de **dalt** va d’**esquerra a dreta**.  
@@ -43,7 +43,7 @@ També apareixeran **caixes especials**, que hauràs de **juntar amb els sushis*
 
 ## Español
 
-En este juego tienes que **sumar, restar y alimentar a los monstruos hambrientos** en un restaurante de sushi.
+En este juego tienes que **sumar, restar y alimentar a los monstruos hambrientos** en un restaurante de sushi. Arrastra los números al plato del monstruo para alimentarlo, oa las máquinas para operar.
 
 Los números salen por **2 cintas transportadoras**:  
 - La de **arriba** va de **izquierda a derecha**.  
@@ -84,7 +84,7 @@ En el juego también aparecerán **cajas especiales**, que deberás **juntar con
 
 ## English
 
-In this game, you have to **add, subtract, and feed hungry monsters** in a sushi restaurant.
+In this game, you have to **add, subtract, and feed hungry monsters** in a sushi restaurant. Drag the numbers to the monster's plate to feed it, or to the machines to operate.
 
 Numbers come out from **two conveyor belts**:  
 - The **top** one moves **left to right**.  

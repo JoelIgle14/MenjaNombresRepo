@@ -1,5 +1,7 @@
 #  MenjaNombres
 
+Fet per Joel Iglesias, Romà Prats, Mikel Reguero i David Castillo.
+
 ##  Català
 
 En aquest joc has de **sumar, restar i alimentar als monstres famolencs** en un restaurant de sushi. Arrosega els nombres al plat del monstre per alimentar-lo, o a les maquines per operar.

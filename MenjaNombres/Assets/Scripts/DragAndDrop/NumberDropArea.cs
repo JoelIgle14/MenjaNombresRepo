@@ -33,6 +33,20 @@ public class NumberDropArea : MonoBehaviour
         // Mover el número a la posición de drop
         number.transform.position = dropPoint.position;
 
+
+        // Posicionar en el punto correcto de la máquina
+        number.transform.position = dropPoint.position;
+        number.transform.SetParent(null); // separarlo visualmente
+
+        // Bloquearlo para que la cinta no lo toque nunca más
+        number.lockedInMachine = true;
+        number.isInMachine = true;
+        number.Holder = null;
+
+        // Guardar la posición exacta para que no se mueva nunca más
+        number.originalMachinePosition = dropPoint.position;
+
+
         // Si el número estaba en un holder como child, separamos hijos para evitar referencias rotas
         if (number.transform.parent != null)
         {

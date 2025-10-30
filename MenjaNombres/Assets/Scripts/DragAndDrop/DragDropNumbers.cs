@@ -10,8 +10,10 @@ public class DragDropNumbers : MonoBehaviour
 
     private Collider2D col;
     private Vector3 startDragPosition;
-    private Vector3 originalMachinePosition; 
-    private bool isInMachine = false;        
+    public Vector3 originalMachinePosition; 
+
+    public bool lockedInMachine = false;
+    public bool isInMachine = false;
 
     PlAud aud;
     ScaleAnimator scaleAnimator;
@@ -56,39 +58,28 @@ public class DragDropNumbers : MonoBehaviour
             {
                 numberDropArea.OnNumberDrop(this, hitCollider.transform);
                 isInMachine = true;
-                originalMachinePosition = transform.position; // guardamos su nueva posición
+                originalMachinePosition = transform.position; // Guardamos su nueva posición
+                return;
             }
-            // Si se suelta sobre la papelera
+            // Si cae en la papelera
             else if (hitCollider.TryGetComponent(out TrashCanArea trashCan))
             {
                 trashCan.OnItemDropped(this);
-                return; // se destruye, no necesitamos moverlo
+                return;
             }
-            else
-            {
-                // Si estaba en la máquina, vuelve a su posición anterior en la máquina
-                if (isInMachine)
-                {
-                    transform.position = originalMachinePosition;
-                }
-                else
-                {
-                    // Si estaba en el holder, vuelve al holder
-                    transform.position = Holder.transform.position;
-                }
-            }
+        }
+
+        //  Reposicionamiento automático 
+        if (isInMachine)
+        {
+            // Ya pertenece a la máquina  vuelve a su sitio exacto
+            transform.position = originalMachinePosition;
         }
         else
         {
-            // Igual: si estaba en máquina, vuelve ahí; si no, al holder
-            if (isInMachine)
-            {
-                transform.position = originalMachinePosition;
-            }
-            else
-            {
+            // No cayó en una drop area  volver al holder
+            if (Holder != null)
                 transform.position = Holder.transform.position;
-            }
         }
     }
 

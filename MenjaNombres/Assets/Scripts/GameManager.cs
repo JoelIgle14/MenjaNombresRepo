@@ -386,7 +386,7 @@ public class GameManager : MonoBehaviour
                     int a = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     int b = Random.Range(2, Mathf.Clamp(max / 3, 3, max));
                     result = a * b;
-                    return $"\"Porta'm una ració de {a} multiplicat {b}";
+                    return $"Porta'm una ració de {a} multiplicat {b}";
                 }
                 else
                 {

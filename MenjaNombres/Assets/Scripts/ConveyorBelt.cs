@@ -124,7 +124,16 @@ public class ConveyorBelt : MonoBehaviour
     void SpawnNumber(Transform holder)
     {
         foreach (Transform numero in holder)
-            Destroy(numero.gameObject);
+            if (numero.TryGetComponent<DragDropNumbers>(out var existingDrag))
+            {
+                if (!existingDrag.lockedInMachine)
+                    Destroy(numero.gameObject);
+            }
+            else
+            {
+                Destroy(numero.gameObject);
+            }
+
         GameObject num = Instantiate(numberPrefab, holder.position, Quaternion.identity, holder);
         DragDropNumbers drag = num.GetComponent<DragDropNumbers>();
         if (drag != null)
@@ -134,6 +143,7 @@ public class ConveyorBelt : MonoBehaviour
             drag.Holder = holder.gameObject;
         }
     }
+
     void SpawnSpecificNumber(Transform holder, int value)
     {
         foreach (Transform numero in holder)

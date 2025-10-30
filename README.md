@@ -21,9 +21,8 @@ En cas que t’equivoquis, pots **dipositar el número que desitges eliminar a l
 3. **Grocs:** Et plantegen un problema però no tan específic.  
 4. **Roses:** Et demanen un número parell o imparell.  
 5. **Blaves:** Et demanen una multiplicació o una divisió (es poden desactivar al menú d'inici).
-
-Depenent de com de ràpid els alimentis, **guanyaràs més o menys punts**.  
-Si no els dones el seu pedido a temps, **perds una vida** (no es pot recuperar).
+ 
+Si no els dones la seva comanda a temps, **perds una vida** (no es pot recuperar).
 
 ###  Caixes especials
 
@@ -63,7 +62,6 @@ En caso de equivocarte, puedes **depositar el número que deseas eliminar en la 
 4. **Rosas:** Te piden un número par o impar.  
 5. **Azules:** Te piden una multiplicación o una división (se pueden desactivar en el menú de inicio).
 
-Dependiendo de qué tan rápido los alimentes, **ganarás más o menos puntos**.  
 Si no les das su pedido a tiempo, **pierdes una vida** (no se puede recuperar).
 
 ### Cajas especiales
@@ -104,7 +102,6 @@ If you make a mistake, you can **drop the number you want to remove into the tra
 4. **Pink:** They ask for an even or odd number.  
 5. **Blue:** They ask for a multiplication or division (can be disabled in the start menu).
 
-The faster you feed them, **the more points you earn**.  
 If you don’t feed them in time, **you lose a life** (lives cannot be recovered).
 
 ### Special Boxes
